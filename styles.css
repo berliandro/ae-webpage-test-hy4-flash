@@ -151,38 +151,50 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.28em;
+  gap: 0.22em;
   text-align: center;
   white-space: nowrap;
-  opacity: 0;
-  transform: translate(-50%, calc(-50% + 0.5em));
-  transition: opacity 200ms ease, transform 200ms ease;
+  opacity: 1;
+  transform: translate(-50%, -50%);
   pointer-events: none;
 }
 
 .card__name {
+  font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(0.7rem, 1.5vw, 1.05rem);
-  letter-spacing: 0.05em;
+  font-size: clamp(0.85rem, 1.85vw, 1.28rem);
+  letter-spacing: 0.02em;
   color: #2a2118;
-  text-shadow: 0 1px 0 rgba(255,244,220,0.35);
+  text-shadow: 0 1px 0 rgba(255,244,220,0.45);
+}
+
+.card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.38em;
+}
+
+.card__plane .card__lane-icon {
+  width: 1.1em;
+  height: 1.1em;
+  flex: 0 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 0 rgba(255,244,220,0.5));
 }
 
 .card__role {
-  font-size: clamp(0.52rem, 1vw, 0.72rem);
-  letter-spacing: 0.12em;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(0.6rem, 1.1vw, 0.78rem);
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #4a3a28;
 }
 
-.card:is(:hover, :focus-visible, .is-open, .is-active) {
+.card:not(.is-flying):is(:hover, :focus-visible, .is-active) {
   z-index: 9;
   transform: translateY(-4%) scale(1.05);
-}
-
-.card:is(:hover, :focus-visible, .is-open, .is-active) .card__label {
-  opacity: 1;
-  transform: translate(-50%, -50%);
 }
 
 .fan.is-inspecting .card:not(.is-active) { opacity: 0.34; }
@@ -284,16 +296,45 @@ body {
   width: min(1180px, 92vw);
 }
 
-.detail__card {
-  width: 100%;
-  max-width: 62vh;
-  height: auto;
-  justify-self: center;
-  image-rendering: pixelated;
-  transform: rotate(var(--straight, 0deg)) scale(1);
-  transform-origin: center center;
-  filter: drop-shadow(0 28px 40px rgba(0,0,0,0.8));
+.detail__info, .detail__nav, .detail__close {
+  transition: opacity 200ms ease;
 }
+.detail.is-leaving .detail__info,
+.detail.is-leaving .detail__nav,
+.detail.is-leaving .detail__close { opacity: 0; }
+
+.detail__left {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+}
+
+/* The destination slot. The real card is moved into it and FLIP-animated. */
+.detail__slot {
+  position: relative;
+  width: min(38vh, 360px);
+  aspect-ratio: 0.66;
+  border: 1px solid rgba(200,168,129,0.28);
+  background: radial-gradient(ellipse at 50% 30%, rgba(226,190,128,0.08), transparent 70%);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+
+/* Same card element, now travelling. Overrides the fan's absolute coordinates. */
+.card.is-flying {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  z-index: 12;
+  transform-origin: 0 0;
+  pointer-events: none;
+  box-shadow: none;
+  outline: none;
+}
+.card.is-flying img { filter: drop-shadow(0 22px 34px rgba(0,0,0,0.72)); }
+.card.is-flying:hover { transform: none; }
 
 .detail__info {
   color: #fff;
@@ -302,10 +343,11 @@ body {
 
 .detail__eyebrow {
   margin: 0 0 var(--sp-2);
-  color: var(--ae-red);
+  color: var(--ae-red-text, #ff7b7b);
+  font-family: var(--font-display);
   font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
@@ -321,49 +363,62 @@ body {
 
 .detail__name {
   margin: 0;
-  font-size: clamp(2.6rem, 6vw, 5rem);
-  line-height: 1;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5.5vw, 4.4rem);
+  line-height: 1.08;
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.01em;
   text-wrap: balance;
 }
 
 .detail__role {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   margin: var(--sp-2) 0 0;
-  font-size: clamp(1rem, 1.8vw, 1.4rem);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: rgba(255,255,255,0.92);
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.7vw, 1.3rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--amber, #e2be80);
 }
 
-.detail__real,
-.detail__born {
-  margin: var(--sp-3) 0 0;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.7);
+.detail__lane-icon {
+  width: 1.4em;
+  height: 1.4em;
+  flex: 0 0 auto;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(78%) sepia(40%) saturate(720%) hue-rotate(354deg) brightness(101%) contrast(88%);
 }
 
-.detail__born { margin-top: 0.3rem; }
-
-.detail__heroes {
-  margin: var(--sp-2) 0 0;
-  font-size: 0.9rem;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.62);
+.detail__facts {
+  margin: var(--sp-4) 0 0;
+  border-top: 1px solid rgba(231,214,180,0.16);
 }
-
-.detail__heroes::before {
-  content: "Signatures — ";
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
+.detail__fact {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(231,214,180,0.12);
+}
+.detail__fact dt {
+  color: rgba(231,214,180,0.7);
   font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.detail__fact dd {
+  margin: 0;
+  color: rgba(255,255,255,0.92);
+  font-size: 0.98rem;
+  line-height: 1.55;
 }
 
 .detail__close {
   position: absolute;
-  top: clamp(1rem, 3vw, 2.5rem);
+  top: clamp(4.25rem, 8vw, 5.5rem);
   right: clamp(1rem, 3vw, 2.5rem);
   padding: 0.6rem 0.2rem;
   border: 0;
@@ -414,7 +469,39 @@ body {
 }
 
 @media (hover: none) {
-  .card__label { opacity: 0.82; transform: translate(-50%, -50%); }
+  .card__label { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+/* Board: pause the ambient breathe while a card is being inspected or aimed at. */
+.table.is-detail .fan, .fan:hover, .fan:focus-within { animation-play-state: paused; }
+
+/* Close replaces Menu on small screens while inspecting; no overlapping controls. */
+@media (max-width: 720px) {
+  body.is-card-detail .nav-toggle { display: none; }
+  body.is-card-detail .site-nav { z-index: 5; }
+  .detail__close {
+    top: 1rem;
+    right: 1rem;
+    min-width: 44px;
+    min-height: 44px;
+    background: rgba(19,16,23,0.88);
+    border: 1px solid var(--rule);
+    padding: 0.6rem 0.9rem;
+    z-index: 30;
+  }
+}
+
+.detail__nav-btn { min-width: 44px; min-height: 44px; }
+.detail__name:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
+
+@media (max-aspect-ratio: 4/5) {
+  .hint { font-size: 0.75rem; top: 56%; bottom: auto; padding: 0.35rem 0.8rem; background: rgba(19,16,23,0.55); }
+  .detail { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .detail__slot { width: min(32vh, 280px); }
+  .detail__stage { gap: 1.5rem; width: 100%; }
+  .detail__nav { left: 50%; right: auto; bottom: 1rem; transform: translateX(-50%); background: rgba(19,16,23,0.82); padding: 0.2rem 0.6rem; }
+  .detail__facts { margin-top: 1.5rem; }
+  .detail__fact { grid-template-columns: 7.5rem minmax(0, 1fr); }
 }
 
 .detail__nav {

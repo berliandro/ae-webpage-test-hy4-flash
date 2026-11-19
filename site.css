@@ -551,6 +551,21 @@ body { min-height: 100vh; overflow-x: hidden; }
 }
 .skip-link:focus { left: 1rem; top: 1rem; }
 
+/* Pixel display face — self-hosted, SIL Open Font License 1.1 (see assets/fonts/OFL.txt) */
+@font-face {
+  font-family: "Silkscreen";
+  src: url("assets/fonts/Silkscreen-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Silkscreen";
+  src: url("assets/fonts/Silkscreen-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+:root { --font-display: "Silkscreen", ui-monospace, monospace; }
+
 /* ---------- Motion: one dealing vocabulary, three restrained materials ---------- */
 /* Content is visible by default; only the presence of .js-motion can hide it. */
 html.js-motion .reveal {

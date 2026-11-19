@@ -8,8 +8,8 @@
 <link rel="icon" href="icon.png" type="image/png" sizes="256x256">
 <link rel="apple-touch-icon" href="apple-icon.png">
 <title>Alter Ego — The Hand You're Dealt</title>
-<link rel="stylesheet" href="styles.css?v=37">
-<link rel="stylesheet" href="site.css?v=7">
+<link rel="stylesheet" href="styles.css?v=41">
+<link rel="stylesheet" href="site.css?v=10">
 <script src="site.js?v=1" defer></script>
 <script src="motion.js?v=1" defer></script>
 <script src="card-warp.js?v=1" defer></script>
@@ -40,68 +40,73 @@
         <!-- Corners and text anchor are measured per PNG in the card's own pixel
              coordinate system, normalised to the image box: TL TR BR BL. -->
         <button class="card" type="button" style="--x:10.227%;--y:44.096%;--w:20.274%;--h:49.734%;--mx:7%;--my:64.5%;--mw:32%;--mh:22%"
-          data-name="Dingarai" data-rank="Ten" data-role="Gold Lane"
+          data-name="Dingarai" data-rank="Ten" data-role="Gold Laner"
+          data-lane="gold"
           data-real="Arifudin Dingarai Putra" data-born="30 April 2005"
           data-heroes="Granger, Claude, Harith, Freya, Obsidia"
           data-straight="14.75"
           data-corners="0.03835,0.16453 0.77581,0.01282 0.98525,0.84188 0.46313,0.99145"
           data-anchor="0.5271,0.7876"
-          aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="Ten — Dingarai, Gold Lane">
-          <img decoding="async" loading="lazy" src="assets/hero/cards/card-10.png" alt="">
+          aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="Ten — Dingarai, Gold Laner">
+          <img decoding="async" src="assets/hero/cards/card-10.png" alt="">
           <span class="card__plane" aria-hidden="true">
-            <span class="card__label"><span class="card__name">Dingarai</span><span class="card__role">Gold Lane</span></span>
+            <span class="card__label"><span class="card__name">Dingarai</span><span class="card__meta"><img class="card__lane-icon" src="assets/hero/lane-icons/lane-gold.svg" alt=""><span class="card__role">Gold Laner</span></span></span>
           </span>
         </button>
         <button class="card" type="button" style="--x:25.598%;--y:38.037%;--w:18.363%;--h:48.141%;--mx:22%;--my:62.5%;--mw:31%;--mh:22%"
           data-name="Affan" data-rank="Jack" data-role="Jungler"
+          data-lane="jungler"
           data-real="Andi Muhammad Affan Wahyudi" data-born="27 June 2004"
           data-heroes="Fanny, Nolan, Ling, Leomord"
           data-straight="8.75"
           data-corners="0.02606,0.09272 0.82736,0.01325 0.97394,0.90728 0.24430,0.97351"
           data-anchor="0.5601,0.8137"
           aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="Jack — Affan, Jungler">
-          <img decoding="async" loading="lazy" src="assets/hero/cards/card-jack.png" alt="">
+          <img decoding="async" src="assets/hero/cards/card-jack.png" alt="">
           <span class="card__plane" aria-hidden="true">
-            <span class="card__label"><span class="card__name">Affan</span><span class="card__role">Jungle Lane</span></span>
+            <span class="card__label"><span class="card__name">Affan</span><span class="card__meta"><img class="card__lane-icon" src="assets/hero/lane-icons/lane-jungler.svg" alt=""><span class="card__role">Jungler</span></span></span>
           </span>
         </button>
         <button class="card" type="button" style="--x:40.731%;--y:35.382%;--w:16.924%;--h:46.334%;--mx:37%;--my:60.5%;--mw:30%;--mh:21%"
-          data-name="Dalvin" data-rank="Queen" data-role="Mid Lane"
+          data-name="Dalvin" data-rank="Queen" data-role="Mid Laner"
+          data-lane="mid"
           data-real="Dalvin Ramadhana Putra" data-born="23 November 2002"
           data-heroes="Yve, Pharsa, Valentina, Faramis, Zhuxin"
           data-straight="2"
           data-corners="0.03534,0.00917 0.95760,0.00459 0.96113,0.98394 0.06007,0.96560"
           data-anchor="0.5241,0.8318"
-          aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="Queen — Dalvin, Mid Lane">
-          <img decoding="async" loading="lazy" src="assets/hero/cards/card-queen.png" alt="">
+          aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="Queen — Dalvin, Mid Laner">
+          <img decoding="async" src="assets/hero/cards/card-queen.png" alt="">
           <span class="card__plane" aria-hidden="true">
-            <span class="card__label"><span class="card__name">Dalvin</span><span class="card__role">Mid Lane</span></span>
+            <span class="card__label"><span class="card__name">Dalvin</span><span class="card__meta"><img class="card__lane-icon" src="assets/hero/lane-icons/lane-mid.svg" alt=""><span class="card__role">Mid Laner</span></span></span>
           </span>
         </button>
         <button class="card" type="button" style="--x:53.228%;--y:37.294%;--w:19.438%;--h:48.459%;--mx:51%;--my:62.5%;--mw:31%;--mh:22%"
           data-name="Alexander" data-rank="King" data-role="Roamer"
+          data-lane="roamer"
           data-real="Alexander Owen Marcetami Buhe" data-born="20 September 2004"
           data-heroes="Gatotkaca, Grock"
           data-straight="-7.5"
           data-corners="0.18462,0.01316 0.97846,0.09868 0.80000,0.98246 0.00923,0.88158"
           data-anchor="0.5235,0.8614"
           aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="King — Alexander, Roamer">
-          <img decoding="async" loading="lazy" src="assets/hero/cards/card-king.png" alt="">
+          <img decoding="async" src="assets/hero/cards/card-king.png" alt="">
           <span class="card__plane" aria-hidden="true">
-            <span class="card__label"><span class="card__name">Alexander</span><span class="card__role">Roam Lane</span></span>
+            <span class="card__label"><span class="card__name">Alexander</span><span class="card__meta"><img class="card__lane-icon" src="assets/hero/lane-icons/lane-roamer.svg" alt=""><span class="card__role">Roamer</span></span></span>
           </span>
         </button>
         <button class="card" type="button" style="--x:65.97%;--y:43.032%;--w:23.085%;--h:52.178%;--mx:65%;--my:64.5%;--mw:33%;--mh:23%"
-          data-name="Nino" data-rank="Ace" data-role="EXP Lane · Captain"
+          data-name="Nino" data-rank="Ace" data-role="EXP Laner · Captain"
+          data-lane="exp"
           data-real="Syauki Fauzan Sumarno" data-born="30 April 2004"
           data-heroes="Benedetta, Yu Zhong, Cici, Phoveus, Arlott"
           data-straight="-18"
           data-corners="0.31347,0.01426 0.97150,0.17719 0.61140,0.98574 0.02073,0.82892"
           data-anchor="0.5008,0.8162"
           aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="Ace — Nino, EXP Lane, captain">
-          <img decoding="async" loading="lazy" src="assets/hero/cards/card-ace.png" alt="">
+          <img decoding="async" src="assets/hero/cards/card-ace.png" alt="">
           <span class="card__plane" aria-hidden="true">
-            <span class="card__label"><span class="card__name">Nino</span><span class="card__role">EXP Lane · Captain</span></span>
+            <span class="card__label"><span class="card__name">Nino</span><span class="card__meta"><img class="card__lane-icon" src="assets/hero/lane-icons/lane-exp.svg" alt=""><span class="card__role">EXP Laner · Captain</span></span></span>
           </span>
         </button>
       </div>
@@ -113,22 +118,29 @@
 
   <p class="hint" id="hint">Tap a card to meet the player.</p>
 
-  <!-- Card focus: the chosen card straightens on the left; details sit beside it. -->
+  <!-- The same card element is moved here on selection; no duplicate image. -->
   <section class="detail" id="detail" role="dialog" aria-modal="true" aria-labelledby="detailName" aria-describedby="detailRole" aria-hidden="true">
-    <div class="detail__nav" aria-label="Player navigation">
+    <nav class="detail__nav" role="group" aria-label="Player navigation">
       <button class="detail__nav-btn" id="detailPrev" type="button" aria-label="Previous player">&#8592;</button>
       <button class="detail__nav-btn" id="detailNext" type="button" aria-label="Next player">&#8594;</button>
-    </div>
+    </nav>
     <button class="detail__close" id="detailClose" type="button" aria-label="Close card details">Close</button>
     <div class="detail__stage">
-      <img class="detail__card" id="detailCard" src="assets/hero/cards/card-ace.png" alt="" decoding="async">
+      <div class="detail__left">
+        <div class="detail__slot" id="detailSlot" aria-hidden="true"></div>
+      </div>
       <div class="detail__info">
-        <p class="detail__eyebrow" id="detailRank" aria-hidden="true"></p>
+        <p class="detail__eyebrow" id="detailRank"></p>
         <h2 class="detail__name" id="detailName" tabindex="-1"></h2>
-        <p class="detail__role" id="detailRole"></p>
-        <p class="detail__real" id="detailReal"></p>
-        <p class="detail__born" id="detailBorn"></p>
-        <p class="detail__heroes" id="detailHeroes"></p>
+        <p class="detail__role" id="detailRole">
+          <img class="detail__lane-icon" id="detailLaneIcon" src="assets/hero/lane-icons/lane-gold.svg" alt="">
+          <span id="detailRoleText"></span>
+        </p>
+        <dl class="detail__facts">
+          <div class="detail__fact"><dt>Real name</dt><dd id="detailReal"></dd></div>
+          <div class="detail__fact"><dt>Born</dt><dd id="detailBorn"></dd></div>
+          <div class="detail__fact"><dt>Signature heroes</dt><dd id="detailHeroes"></dd></div>
+        </dl>
         <p class="sr-only" id="detailAnnounce" role="status" aria-live="polite"></p>
       </div>
     </div>
@@ -189,6 +201,6 @@
   <div class="site-footer__brand"><img src="assets/hero/logo-ae.png" alt="" width="44" height="44" loading="lazy"><span>Alter Ego · MPL ID</span></div>
   <p class="site-footer__note">Fan-made. Team facts from <a href="https://id-mpl.com/" target="_blank" rel="noopener noreferrer">MPL Indonesia</a> and <a href="https://liquipedia.net/mobilelegends/Alter_Ego" target="_blank" rel="noopener noreferrer">Liquipedia</a> (CC BY-SA 3.0). Not affiliated with Alter Ego or Moonton.</p>
 </div></footer>
-<script src="script.js?v=33"></script>
+<script src="script.js?v=36"></script>
 </body>
 </html>
