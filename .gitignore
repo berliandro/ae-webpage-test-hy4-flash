@@ -1,0 +1,29 @@
+# OS and editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Python caches
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Node / build artifacts
+node_modules/
+dist/
+build/
+
+# Local environment and secrets
+.env
+.env.*
+*.local
+
+# Temporary and log files
+*.tmp
+*.log
+*.bak

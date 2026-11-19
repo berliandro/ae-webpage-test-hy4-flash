@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="styles.css?v=35">
 <link rel="stylesheet" href="site.css?v=5">
 <script src="site.js?v=1" defer></script>
+<script src="card-warp.js?v=1" defer></script>
 </head>
 <body>
 <header class="site-nav" id="siteNav">
@@ -32,50 +33,72 @@
       <img class="hand hand--right" decoding="async" src="assets/hero/hand-right.png" alt="" aria-hidden="true">
 
       <div class="fan" id="fan">
+        <!-- Corners and text anchor are measured per PNG in the card's own pixel
+             coordinate system, normalised to the image box: TL TR BR BL. -->
         <button class="card" type="button" style="--x:10.227%;--y:40.596%;--w:20.274%;--h:49.734%;--mx:7%;--my:61%;--mw:32%;--mh:22%"
           data-name="Dingarai" data-rank="Ten" data-role="Gold Lane"
           data-real="Arifudin Dingarai Putra" data-born="30 April 2005"
           data-heroes="Granger, Claude, Harith, Freya, Obsidia"
           data-straight="14.75"
+          data-corners="0.03835,0.16453 0.77581,0.01282 0.98525,0.84188 0.46313,0.99145"
+          data-anchor="0.5271,0.7876"
           aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="Ten — Dingarai, Gold Lane">
           <img decoding="async" loading="lazy" src="assets/hero/cards/card-10.png" alt="">
-          <span class="card__label" aria-hidden="true"><span class="card__name">Dingarai</span><span class="card__role">Gold Lane</span></span>
+          <span class="card__plane" aria-hidden="true">
+            <span class="card__label"><span class="card__name">Dingarai</span><span class="card__role">Gold Lane</span></span>
+          </span>
         </button>
         <button class="card" type="button" style="--x:25.598%;--y:34.537%;--w:18.363%;--h:48.141%;--mx:22%;--my:59%;--mw:31%;--mh:22%"
           data-name="Affan" data-rank="Jack" data-role="Jungler"
           data-real="Andi Muhammad Affan Wahyudi" data-born="27 June 2004"
           data-heroes="Fanny, Nolan, Ling, Leomord"
           data-straight="8.75"
+          data-corners="0.02606,0.09272 0.82736,0.01325 0.97394,0.90728 0.24430,0.97351"
+          data-anchor="0.5601,0.8137"
           aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="Jack — Affan, Jungler">
           <img decoding="async" loading="lazy" src="assets/hero/cards/card-jack.png" alt="">
-          <span class="card__label" aria-hidden="true"><span class="card__name">Affan</span><span class="card__role">Jungler</span></span>
+          <span class="card__plane" aria-hidden="true">
+            <span class="card__label"><span class="card__name">Affan</span><span class="card__role">Jungle Lane</span></span>
+          </span>
         </button>
         <button class="card" type="button" style="--x:40.731%;--y:31.882%;--w:16.924%;--h:46.334%;--mx:37%;--my:57%;--mw:30%;--mh:21%"
           data-name="Dalvin" data-rank="Queen" data-role="Mid Lane"
           data-real="Dalvin Ramadhana Putra" data-born="23 November 2002"
           data-heroes="Yve, Pharsa, Valentina, Faramis, Zhuxin"
           data-straight="2"
+          data-corners="0.03534,0.00917 0.95760,0.00459 0.96113,0.98394 0.06007,0.96560"
+          data-anchor="0.5241,0.8318"
           aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="Queen — Dalvin, Mid Lane">
           <img decoding="async" loading="lazy" src="assets/hero/cards/card-queen.png" alt="">
-          <span class="card__label" aria-hidden="true"><span class="card__name">Dalvin</span><span class="card__role">Mid Lane</span></span>
+          <span class="card__plane" aria-hidden="true">
+            <span class="card__label"><span class="card__name">Dalvin</span><span class="card__role">Mid Lane</span></span>
+          </span>
         </button>
         <button class="card" type="button" style="--x:53.228%;--y:33.794%;--w:19.438%;--h:48.459%;--mx:51%;--my:59%;--mw:31%;--mh:22%"
           data-name="Alexander" data-rank="King" data-role="Roamer"
           data-real="Alexander Owen Marcetami Buhe" data-born="20 September 2004"
           data-heroes="Gatotkaca, Grock"
           data-straight="-7.5"
+          data-corners="0.18462,0.01316 0.97846,0.09868 0.80000,0.98246 0.00923,0.88158"
+          data-anchor="0.5235,0.8614"
           aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="King — Alexander, Roamer">
           <img decoding="async" loading="lazy" src="assets/hero/cards/card-king.png" alt="">
-          <span class="card__label" aria-hidden="true"><span class="card__name">Alexander</span><span class="card__role">Roamer</span></span>
+          <span class="card__plane" aria-hidden="true">
+            <span class="card__label"><span class="card__name">Alexander</span><span class="card__role">Roam Lane</span></span>
+          </span>
         </button>
         <button class="card" type="button" style="--x:65.97%;--y:39.532%;--w:23.085%;--h:52.178%;--mx:65%;--my:61%;--mw:33%;--mh:23%"
           data-name="Nino" data-rank="Ace" data-role="EXP Lane · Captain"
           data-real="Syauki Fauzan Sumarno" data-born="30 April 2004"
           data-heroes="Benedetta, Yu Zhong, Cici, Phoveus, Arlott"
           data-straight="-18"
+          data-corners="0.31347,0.01426 0.97150,0.17719 0.61140,0.98574 0.02073,0.82892"
+          data-anchor="0.5008,0.8162"
           aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="Ace — Nino, EXP Lane, captain">
           <img decoding="async" loading="lazy" src="assets/hero/cards/card-ace.png" alt="">
-          <span class="card__label" aria-hidden="true"><span class="card__name">Nino</span><span class="card__role">EXP Lane · Captain</span></span>
+          <span class="card__plane" aria-hidden="true">
+            <span class="card__label"><span class="card__name">Nino</span><span class="card__role">EXP Lane · Captain</span></span>
+          </span>
         </button>
       </div>
 

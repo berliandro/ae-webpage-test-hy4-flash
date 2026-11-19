@@ -135,18 +135,27 @@ body {
   image-rendering: pixelated;
 }
 
+/* Text lives on the card's own plane, not on the rectangular PNG canvas.
+   card-warp.js maps this plane's [0,1]² onto the four measured card corners. */
+.card__plane {
+  position: absolute;
+  inset: 0;
+  transform-origin: 0 0;
+  pointer-events: none;
+}
+
 .card__label {
   position: absolute;
-  left: 12%;
-  right: 12%;
-  top: 68%;
+  left: var(--label-x, 50%);
+  top: var(--label-y, 80%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.28em;
+  gap: 0.22em;
   text-align: center;
+  white-space: nowrap;
   opacity: 0;
-  transform: translateY(0.5em);
+  transform: translate(-50%, calc(-50% + 0.5em));
   transition: opacity 200ms ease, transform 200ms ease;
   pointer-events: none;
 }
@@ -173,7 +182,7 @@ body {
 
 .card:is(:hover, :focus-visible, .is-open, .is-active) .card__label {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate(-50%, -50%);
 }
 
 .fan.is-inspecting .card:not(.is-active) { opacity: 0.34; }
@@ -403,7 +412,7 @@ body {
 }
 
 @media (hover: none) {
-  .card__label { opacity: 0.82; transform: translateY(0); }
+  .card__label { opacity: 0.82; transform: translate(-50%, -50%); }
 }
 
 .detail__nav {

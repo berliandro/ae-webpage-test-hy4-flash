@@ -1,8 +1,8 @@
-# Design — Alter Ego homepage
+# Design — Alter Ego MPL ID website
 
 <!-- impeccable:design-schema 1 -->
 
-The homepage is an Experience surface: the illustration leads and the interface recedes. It is a single immersive first viewport of a retro pixel-art poker arena, with no conventional site header or navigation.
+The homepage is an Experience surface: the illustration leads and the interface recedes. It is an immersive first viewport of a retro pixel-art poker arena. The rest of the site extends that world with an editorial Read/Persuade layer across four pages (Roster, Competition, Legacy, Media), connected by navigation whose crest sits at the centre like a dealer button and whose links flank it like table positions.
 
 ## World and visual authority
 
@@ -55,6 +55,16 @@ One authored focal moment (the card-focus zoom/straighten) plus three quiet, con
 
 All rasters in `assets/hero/` were produced by the separate Pixie image-editing agent from the user's approved source `C:\Users\nberl\Downloads\Retro Pixel Art Poker Arena.png`. Card textures came from an Affinity layer decomposition; hands and thumbs from Canva background removal; the clean arena from the user's Canva export. Original source pixels were preserved at 1:1 scale. Pixel-grid and density contract is documented in the image-editing project's `STYLE-NOTES.md` §7.
 
+## Site pages (verified content only)
+
+- **Roster** (`roster.html`) — the five cards as player tiles, three registered substitutes, coaching staff. Card ranks are explicitly labelled a creative identity, not an official designation.
+- **Competition** (`competition.html`) — MPL ID Season 18: 3rd in the regular season (10–6), 4th after playoffs; verified playoff and late-season results; final table; no published upcoming fixtures.
+- **Legacy** (`legacy.html`) — selected verified achievements (MPLI 2020 champions, M7 runners-up 2026, M2 4th 2021, and others), Season 18 individual honours, a sourced history timeline, and an About section.
+- **Media** (`media.html`) — five embedded official YouTube videos, seven verified official channel links. No invented galleries or fan uploads presented as official.
+- All factual claims cite MPL Indonesia and/or Liquipedia in each page footer. Unverifiable details (exact founding date, official slogan status) are explicitly hedged.
+
 ## Open decisions (not invented)
 
-- Player → rank creative mapping, substitute-card interaction, supporting content below the hero, and remaining site sections remain undecided.
+- Player → rank creative mapping remains a creative identity, clearly labelled as such.
+- Substitute-card swap interaction in the hero was not built; substitutes are presented on the Roster page instead.
+- A portrait-specific expanded background was not yet supplied; mobile/portrait uses the tighter fan composition until it arrives.
