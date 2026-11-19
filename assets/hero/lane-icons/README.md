@@ -15,5 +15,10 @@ Mapping: `lane-exp.svg` → Nino, `lane-jungler.svg` → Affan, `lane-mid.svg` �
 
 `../fonts/Silkscreen-Regular.ttf` and `Silkscreen-Bold.ttf` — Silkscreen by Jason Kottke,
 licensed under the SIL Open Font License 1.1 (full text in `assets/fonts/OFL.txt`).
-Self-hosted with `font-display: swap`. Used only for display roles (card names, detail
-headings, eyebrows); body copy keeps the readable system stack.
+Self-hosted with `font-display: swap`. WOFF2 files are the primary source (TTF retained
+as a fallback); both contain the same glyphs. Used only for display roles (card names,
+detail headings, eyebrows); body copy keeps the readable system stack.
+
+Hero WebP siblings (`*.webp` next to each hero PNG) are **lossless** conversions of the
+original artwork with byte-identical visible pixels. Browsers supporting WebP load those;
+others fall back to the re-encoded, metadata-stripped PNGs.

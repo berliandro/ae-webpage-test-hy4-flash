@@ -53,10 +53,16 @@
     active = card;
   }
 
-  // Move the SAME card between parents and animate the geometry difference.
+  // Move the SAME card between parents and animate geometry + orientation.
+  // The artwork carries the fan's baked-in perspective; data-straight is the
+  // angle that neutralises it, so the picked-up card finishes upright.
   function fly(card, toSlot, duration) {
+    const straight = parseFloat(card.dataset.straight || 0);
+    const upright = "rotate(" + straight + "deg)";
     const first = card.getBoundingClientRect();
+
     if (toSlot) {
+      card.style.transform = "";
       slot.appendChild(card);
       card.classList.add("is-flying");
       card.tabIndex = -1;
@@ -64,21 +70,28 @@
       card.classList.remove("is-flying");
       card.removeAttribute("tabindex");
       fan.appendChild(card);
+      // Keep the upright rotation while measuring so the return starts from
+      // exactly where the card visually is.
+      card.style.transform = upright;
     }
+
     const last = card.getBoundingClientRect();
     const sx = last.width ? first.width / last.width : 1;
     const sy = last.height ? first.height / last.height : 1;
-    const inverse = "translate(" + (first.left - last.left) + "px," + (first.top - last.top) + "px) scale(" + sx + "," + sy + ")";
+    // Center-origin FLIP: rotation/scale leave the rect centre in place.
+    const dx = first.left - last.left - last.width * (1 - sx) / 2;
+    const dy = first.top - last.top - last.height * (1 - sy) / 2;
+    const inverse = "translate(" + dx + "px," + dy + "px) scale(" + sx + "," + sy + ")";
+    const destination = toSlot ? upright : "none";
 
     card.style.transition = "none";
-    card.style.transformOrigin = "0 0";
     if (reduce) {
+      card.style.transform = toSlot ? upright : "";
       card.style.transition = "";
-      card.style.transformOrigin = "";
       return Promise.resolve();
     }
     const anim = card.animate(
-      [{ transform: inverse }, { transform: "none" }],
+      [{ transform: inverse }, { transform: destination }],
       { duration: duration, easing: "cubic-bezier(0.16,1,0.3,1)", fill: "both" }
     );
     return new Promise(function (resolve) {
@@ -87,8 +100,8 @@
         if (done) return;
         done = true;
         try { anim.cancel(); } catch (err) { /* already finished */ }
+        card.style.transform = toSlot ? upright : "";
         card.style.transition = "";
-        card.style.transformOrigin = "";
         resolve();
       }
       anim.onfinish = finish;
@@ -178,6 +191,9 @@
     if (e.target.closest(".card")) setActive(null);
   });
   fan.addEventListener("focusin", function (e) {
+    // Restoring focus to the returned card must not re-enter the dimmed
+    // inspecting state; CSS :focus-visible already highlights it.
+    if (!detail.classList.contains("is-open")) return;
     const c = e.target.closest(".card");
     if (c && !active) setActive(c);
   });

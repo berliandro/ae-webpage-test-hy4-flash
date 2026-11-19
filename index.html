@@ -7,9 +7,11 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="icon.png" type="image/png" sizes="256x256">
 <link rel="apple-touch-icon" href="apple-icon.png">
+<link rel="preload" as="image" href="assets/hero/arena-blurred.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="font" href="assets/fonts/Silkscreen-Bold.woff2" type="font/woff2" crossorigin>
 <title>Alter Ego — The Hand You're Dealt</title>
-<link rel="stylesheet" href="styles.css?v=41">
-<link rel="stylesheet" href="site.css?v=10">
+<link rel="stylesheet" href="styles.css?v=43">
+<link rel="stylesheet" href="site.css?v=11">
 <script src="site.js?v=1" defer></script>
 <script src="motion.js?v=1" defer></script>
 <script src="card-warp.js?v=1" defer></script>
@@ -28,13 +30,13 @@
   <!-- One rigid scene: arena + hand rotate together as a single layer. -->
   <div class="scene-root" id="sceneRoot">
     <div class="arena" aria-hidden="true">
-      <img src="assets/hero/arena-blurred.png" alt="" decoding="async" fetchpriority="high">
+      <picture class="arena__art"><source srcset="assets/hero/arena-blurred.webp" type="image/webp"><img src="assets/hero/arena-blurred.png" alt="" decoding="async" fetchpriority="high"></picture>
     </div>
     <div class="light-pool" aria-hidden="true"></div>
 
     <div class="hand-group">
-      <img class="hand hand--left" decoding="async" src="assets/hero/hand-left.png" alt="" aria-hidden="true">
-      <img class="hand hand--right" decoding="async" src="assets/hero/hand-right.png" alt="" aria-hidden="true">
+      <picture class="hand hand--left"><source srcset="assets/hero/hand-left.webp" type="image/webp"><img decoding="async" src="assets/hero/hand-left.png" alt="" aria-hidden="true"></picture>
+      <picture class="hand hand--right"><source srcset="assets/hero/hand-right.webp" type="image/webp"><img decoding="async" src="assets/hero/hand-right.png" alt="" aria-hidden="true"></picture>
 
       <div class="fan" id="fan">
         <!-- Corners and text anchor are measured per PNG in the card's own pixel
@@ -48,7 +50,7 @@
           data-corners="0.03835,0.16453 0.77581,0.01282 0.98525,0.84188 0.46313,0.99145"
           data-anchor="0.5271,0.7876"
           aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="Ten — Dingarai, Gold Laner">
-          <img decoding="async" src="assets/hero/cards/card-10.png" alt="">
+          <picture class="card__art"><source srcset="assets/hero/cards/card-10.webp" type="image/webp"><img decoding="async" src="assets/hero/cards/card-10.png" alt=""></picture>
           <span class="card__plane" aria-hidden="true">
             <span class="card__label"><span class="card__name">Dingarai</span><span class="card__meta"><img class="card__lane-icon" src="assets/hero/lane-icons/lane-gold.svg" alt=""><span class="card__role">Gold Laner</span></span></span>
           </span>
@@ -62,7 +64,7 @@
           data-corners="0.02606,0.09272 0.82736,0.01325 0.97394,0.90728 0.24430,0.97351"
           data-anchor="0.5601,0.8137"
           aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="Jack — Affan, Jungler">
-          <img decoding="async" src="assets/hero/cards/card-jack.png" alt="">
+          <picture class="card__art"><source srcset="assets/hero/cards/card-jack.webp" type="image/webp"><img decoding="async" src="assets/hero/cards/card-jack.png" alt=""></picture>
           <span class="card__plane" aria-hidden="true">
             <span class="card__label"><span class="card__name">Affan</span><span class="card__meta"><img class="card__lane-icon" src="assets/hero/lane-icons/lane-jungler.svg" alt=""><span class="card__role">Jungler</span></span></span>
           </span>
@@ -76,7 +78,7 @@
           data-corners="0.03534,0.00917 0.95760,0.00459 0.96113,0.98394 0.06007,0.96560"
           data-anchor="0.5241,0.8318"
           aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="Queen — Dalvin, Mid Laner">
-          <img decoding="async" src="assets/hero/cards/card-queen.png" alt="">
+          <picture class="card__art"><source srcset="assets/hero/cards/card-queen.webp" type="image/webp"><img decoding="async" src="assets/hero/cards/card-queen.png" alt=""></picture>
           <span class="card__plane" aria-hidden="true">
             <span class="card__label"><span class="card__name">Dalvin</span><span class="card__meta"><img class="card__lane-icon" src="assets/hero/lane-icons/lane-mid.svg" alt=""><span class="card__role">Mid Laner</span></span></span>
           </span>
@@ -90,7 +92,7 @@
           data-corners="0.18462,0.01316 0.97846,0.09868 0.80000,0.98246 0.00923,0.88158"
           data-anchor="0.5235,0.8614"
           aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="King — Alexander, Roamer">
-          <img decoding="async" src="assets/hero/cards/card-king.png" alt="">
+          <picture class="card__art"><source srcset="assets/hero/cards/card-king.webp" type="image/webp"><img decoding="async" src="assets/hero/cards/card-king.png" alt=""></picture>
           <span class="card__plane" aria-hidden="true">
             <span class="card__label"><span class="card__name">Alexander</span><span class="card__meta"><img class="card__lane-icon" src="assets/hero/lane-icons/lane-roamer.svg" alt=""><span class="card__role">Roamer</span></span></span>
           </span>
@@ -104,15 +106,15 @@
           data-corners="0.31347,0.01426 0.97150,0.17719 0.61140,0.98574 0.02073,0.82892"
           data-anchor="0.5008,0.8162"
           aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="Ace — Nino, EXP Lane, captain">
-          <img decoding="async" src="assets/hero/cards/card-ace.png" alt="">
+          <picture class="card__art"><source srcset="assets/hero/cards/card-ace.webp" type="image/webp"><img decoding="async" src="assets/hero/cards/card-ace.png" alt=""></picture>
           <span class="card__plane" aria-hidden="true">
             <span class="card__label"><span class="card__name">Nino</span><span class="card__meta"><img class="card__lane-icon" src="assets/hero/lane-icons/lane-exp.svg" alt=""><span class="card__role">EXP Laner · Captain</span></span></span>
           </span>
         </button>
       </div>
 
-      <img class="thumb thumb--left" decoding="async" src="assets/hero/thumb-left.png" alt="" aria-hidden="true">
-      <img class="thumb thumb--right" decoding="async" src="assets/hero/thumb-right.png" alt="" aria-hidden="true">
+      <picture class="thumb thumb--left"><source srcset="assets/hero/thumb-left.webp" type="image/webp"><img decoding="async" src="assets/hero/thumb-left.png" alt="" aria-hidden="true"></picture>
+      <picture class="thumb thumb--right"><source srcset="assets/hero/thumb-right.webp" type="image/webp"><img decoding="async" src="assets/hero/thumb-right.png" alt="" aria-hidden="true"></picture>
     </div>
   </div>
 
@@ -201,6 +203,6 @@
   <div class="site-footer__brand"><img src="assets/hero/logo-ae.png" alt="" width="44" height="44" loading="lazy"><span>Alter Ego · MPL ID</span></div>
   <p class="site-footer__note">Fan-made. Team facts from <a href="https://id-mpl.com/" target="_blank" rel="noopener noreferrer">MPL Indonesia</a> and <a href="https://liquipedia.net/mobilelegends/Alter_Ego" target="_blank" rel="noopener noreferrer">Liquipedia</a> (CC BY-SA 3.0). Not affiliated with Alter Ego or Moonton.</p>
 </div></footer>
-<script src="script.js?v=36"></script>
+<script src="script.js?v=39"></script>
 </body>
 </html>
