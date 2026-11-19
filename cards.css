@@ -5,8 +5,8 @@
 .card__plane { container-type: inline-size; }
 
 .card__label {
-  width: 76cqw;
-  max-width: 270px;
+  width: 82cqw;
+  max-width: 292px;
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
@@ -21,10 +21,7 @@
   color: var(--ink-plate);
   border: 1px solid rgba(92, 58, 42, 0.55);
   background-color: rgba(232, 209, 174, 0.34);
-  box-shadow:
-    inset 0 0 0 2px rgba(255, 240, 208, 0.32),
-    inset 0 0 0 3px rgba(92, 58, 42, 0.18),
-    0 2px 0 rgba(58, 36, 28, 0.2);
+  box-shadow: inset 0 0 0 2px rgba(255, 240, 208, 0.28), 0 2px 0 rgba(58, 36, 28, 0.18);
 }
 
 /* Four pixel corner brackets, drawn rather than faked with gradients. */
@@ -84,7 +81,7 @@
 }
 .card__edition {
   font-family: var(--font-display);
-  font-size: 2.9cqw;
+  font-size: 3.4cqw;
   letter-spacing: 0.02em;
   color: #6b4c37;
   white-space: nowrap;
@@ -99,7 +96,6 @@
   letter-spacing: 0.005em;
   text-transform: uppercase;
   color: #241a15;
-  text-shadow: 1px 1px 0 rgba(255, 242, 212, 0.5);
   white-space: nowrap;
 }
 
@@ -155,19 +151,13 @@
   color: #4a3124;
   text-align: left;
 }
-/* Long display names must stay inside the plate at every viewing size. */
-.card[data-name="Alexander"] .card__name { font-size: clamp(8px, 6.4cqw, 19px); }
-.card[data-name="Dingarai"] .card__name { font-size: clamp(8px, 7.4cqw, 22px); }
-
 .card__captain {
-  position: absolute;
-  right: 2.5cqw;
-  bottom: 2cqw;
-  padding: 0.4cqw 1.4cqw;
+  flex: 0 0 auto;
+  padding: 0.5cqw 1.4cqw;
   background: rgba(129, 48, 49, 0.88);
   color: #f7e9cc;
   font-family: var(--font-display);
-  font-size: 2.8cqw;
+  font-size: 3.2cqw;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -177,8 +167,6 @@
   .card__label { width: 66cqw; }
   .card__plate { padding: 3cqw 3.5cqw 3.5cqw; }
   .card__name { font-size: clamp(8px, 7.6cqw, 22px); }
-  .card[data-name="Alexander"] .card__name { font-size: clamp(7px, 5.8cqw, 17px); }
-  .card[data-name="Dingarai"] .card__name { font-size: clamp(7px, 6.6cqw, 20px); }
   .card__plate-top { margin-bottom: 1.6cqw; }
   .card__divider { margin: 2cqw 5cqw 1.8cqw; }
 }
@@ -186,3 +174,10 @@
 @media (prefers-reduced-motion: reduce) {
   .card__plate { box-shadow: inset 0 0 0 2px rgba(255,240,208,0.32), inset 0 0 0 3px rgba(92,58,42,0.18); }
 }
+
+/* Black-playing-card suits use ink, red suits keep the AE crimson. */
+.card:nth-child(-n+2) .card__suit,
+.card:nth-child(5) .card__suit { color: #241a15; }
+
+/* The upright inspection is the payoff: let the collectible plate breathe. */
+.card.is-flying .card__label { width: 88cqw; }
