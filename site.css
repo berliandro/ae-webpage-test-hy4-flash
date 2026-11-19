@@ -188,8 +188,8 @@ body { min-height: 100vh; overflow-x: hidden; }
 .section-head h2 {
   margin: 0;
   color: var(--cream);
-  font-size: clamp(1.4rem, 3vw, 2.2rem);
-  letter-spacing: -0.02em;
+  font-size: clamp(1.5rem, 3.4vw, 2.5rem);
+  letter-spacing: -0.04em;
   font-weight: 700;
 }
 .section-head .section-note {
@@ -550,3 +550,128 @@ body { min-height: 100vh; overflow-x: hidden; }
   text-decoration: none;
 }
 .skip-link:focus { left: 1rem; top: 1rem; }
+
+/* ---------- Motion: one dealing vocabulary, three restrained materials ---------- */
+/* Content is visible by default; only the presence of .js-motion can hide it. */
+html.js-motion .reveal {
+  transition: opacity 620ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  opacity: 0;
+}
+html.js-motion .reveal--rise { transform: translateY(16px); }
+html.js-motion .reveal--deal { transform: translateY(12px) rotate(-1deg); }
+html.js-motion .reveal--line { transform: translateX(-14px); }
+html.js-motion .reveal.is-revealed { opacity: 1; transform: none; }
+
+/* Feedback that confirms an action, never decoration for its own sake. */
+.nav-links a { transition: color 160ms ease, transform 160ms ease; }
+.nav-links a:hover { transform: translateY(-1px); }
+.nav-links a:active { transform: translateY(1px); }
+.nav-toggle:active, .detail__nav-btn:active { transform: scale(0.94); }
+
+.result-row {
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+.result-row:hover { transform: translateX(5px); background: rgba(231,214,180,0.025); }
+.channel-row { transition: transform 180ms ease, background-color 180ms ease, padding 180ms ease; }
+.channel-row:hover { transform: translateX(5px); }
+.channel-row__arrow { transition: transform 180ms ease; }
+.channel-row:hover .channel-row__arrow { transform: translate(3px, -3px); }
+.action-link { transition: color 160ms ease, border-color 160ms ease, transform 160ms ease; padding: 4px 0; }
+.action-link:hover { transform: translateX(3px); }
+.stat__value, .result-row__score { font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  html.js-motion .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .nav-links a:hover, .nav-links a:active,
+  .result-row:hover, .channel-row:hover,
+  .channel-row:hover .channel-row__arrow, .action-link:hover { transform: none; }
+  .nav-toggle:active, .detail__nav-btn:active { transform: none; }
+}
+
+/* ---------- Bolder: one face-up card as the record's peak ---------- */
+.record-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: stretch;
+}
+.record-card {
+  position: relative;
+  isolation: isolate;
+  border: 1px solid rgba(200,168,129,0.42);
+  border-top: 3px solid var(--ae-red);
+  background: linear-gradient(155deg, rgba(231,214,180,0.12), rgba(231,214,180,0.02));
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  padding: clamp(24px, 4vw, 40px);
+  overflow: hidden;
+}
+.record-card::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(231,214,180,0.12);
+  pointer-events: none;
+}
+.record-card__year {
+  position: absolute;
+  top: -0.12em;
+  right: 0.04em;
+  z-index: -1;
+  color: rgba(231,214,180,0.07);
+  font-size: clamp(6rem, 15vw, 11rem);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  user-select: none;
+}
+.record-card__body { position: relative; }
+.record-card__label {
+  margin: 0 0 0.9rem;
+  color: var(--amber);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+.record-card h3 {
+  margin: 0 0 0.8rem;
+  color: var(--cream);
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+.record-card p:last-child, .record-row p:last-child {
+  margin: 0;
+  color: rgba(231,214,180,0.9);
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 46ch;
+}
+.record-side { display: flex; flex-direction: column; justify-content: center; }
+.record-row { padding: 1.4rem 0; border-top: 1px solid var(--rule); }
+.record-row:last-child { border-bottom: 1px solid var(--rule); }
+.record-row h3 {
+  margin: 0 0 0.5rem;
+  color: var(--cream);
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+}
+@media (max-width: 760px) {
+  .record-feature { grid-template-columns: 1fr; }
+}
+
+
+/* Browser surfaces belong to the design too. */
+::selection { background: var(--amber); color: var(--ink); }
+.skip-link:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.video-frame {
+  background-color: #100e14;
+  background-size: cover;
+  background-position: center;
+}

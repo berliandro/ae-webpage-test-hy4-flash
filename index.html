@@ -4,10 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#131017">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="icon.png" type="image/png" sizes="256x256">
+<link rel="apple-touch-icon" href="apple-icon.png">
 <title>Alter Ego — The Hand You're Dealt</title>
-<link rel="stylesheet" href="styles.css?v=35">
-<link rel="stylesheet" href="site.css?v=5">
+<link rel="stylesheet" href="styles.css?v=37">
+<link rel="stylesheet" href="site.css?v=7">
 <script src="site.js?v=1" defer></script>
+<script src="motion.js?v=1" defer></script>
 <script src="card-warp.js?v=1" defer></script>
 </head>
 <body>
@@ -35,7 +39,7 @@
       <div class="fan" id="fan">
         <!-- Corners and text anchor are measured per PNG in the card's own pixel
              coordinate system, normalised to the image box: TL TR BR BL. -->
-        <button class="card" type="button" style="--x:10.227%;--y:40.596%;--w:20.274%;--h:49.734%;--mx:7%;--my:61%;--mw:32%;--mh:22%"
+        <button class="card" type="button" style="--x:10.227%;--y:44.096%;--w:20.274%;--h:49.734%;--mx:7%;--my:64.5%;--mw:32%;--mh:22%"
           data-name="Dingarai" data-rank="Ten" data-role="Gold Lane"
           data-real="Arifudin Dingarai Putra" data-born="30 April 2005"
           data-heroes="Granger, Claude, Harith, Freya, Obsidia"
@@ -48,7 +52,7 @@
             <span class="card__label"><span class="card__name">Dingarai</span><span class="card__role">Gold Lane</span></span>
           </span>
         </button>
-        <button class="card" type="button" style="--x:25.598%;--y:34.537%;--w:18.363%;--h:48.141%;--mx:22%;--my:59%;--mw:31%;--mh:22%"
+        <button class="card" type="button" style="--x:25.598%;--y:38.037%;--w:18.363%;--h:48.141%;--mx:22%;--my:62.5%;--mw:31%;--mh:22%"
           data-name="Affan" data-rank="Jack" data-role="Jungler"
           data-real="Andi Muhammad Affan Wahyudi" data-born="27 June 2004"
           data-heroes="Fanny, Nolan, Ling, Leomord"
@@ -61,7 +65,7 @@
             <span class="card__label"><span class="card__name">Affan</span><span class="card__role">Jungle Lane</span></span>
           </span>
         </button>
-        <button class="card" type="button" style="--x:40.731%;--y:31.882%;--w:16.924%;--h:46.334%;--mx:37%;--my:57%;--mw:30%;--mh:21%"
+        <button class="card" type="button" style="--x:40.731%;--y:35.382%;--w:16.924%;--h:46.334%;--mx:37%;--my:60.5%;--mw:30%;--mh:21%"
           data-name="Dalvin" data-rank="Queen" data-role="Mid Lane"
           data-real="Dalvin Ramadhana Putra" data-born="23 November 2002"
           data-heroes="Yve, Pharsa, Valentina, Faramis, Zhuxin"
@@ -74,7 +78,7 @@
             <span class="card__label"><span class="card__name">Dalvin</span><span class="card__role">Mid Lane</span></span>
           </span>
         </button>
-        <button class="card" type="button" style="--x:53.228%;--y:33.794%;--w:19.438%;--h:48.459%;--mx:51%;--my:59%;--mw:31%;--mh:22%"
+        <button class="card" type="button" style="--x:53.228%;--y:37.294%;--w:19.438%;--h:48.459%;--mx:51%;--my:62.5%;--mw:31%;--mh:22%"
           data-name="Alexander" data-rank="King" data-role="Roamer"
           data-real="Alexander Owen Marcetami Buhe" data-born="20 September 2004"
           data-heroes="Gatotkaca, Grock"
@@ -87,7 +91,7 @@
             <span class="card__label"><span class="card__name">Alexander</span><span class="card__role">Roam Lane</span></span>
           </span>
         </button>
-        <button class="card" type="button" style="--x:65.97%;--y:39.532%;--w:23.085%;--h:52.178%;--mx:65%;--my:61%;--mw:33%;--mh:23%"
+        <button class="card" type="button" style="--x:65.97%;--y:43.032%;--w:23.085%;--h:52.178%;--mx:65%;--my:64.5%;--mw:33%;--mh:23%"
           data-name="Nino" data-rank="Ace" data-role="EXP Lane · Captain"
           data-real="Syauki Fauzan Sumarno" data-born="30 April 2004"
           data-heroes="Benedetta, Yu Zhong, Cici, Phoveus, Arlott"
@@ -149,10 +153,27 @@
 
     <section class="section">
       <div class="section-head"><h2>A record worth knowing</h2><a class="action-link" href="legacy.html" style="margin:0">All achievements <span aria-hidden="true">&#8599;</span></a></div>
-      <div class="grid-3">
-        <div class="stock-card"><p class="stock-card__label">2020 · Champion</p><h3>MPL Invitational</h3><p>A 3–0 grand final sweep of Bren Esports, with an 11–0 map record across the tournament.</p></div>
-        <div class="stock-card"><p class="stock-card__label">2026 · Runner-up</p><h3>M7 World Championship</h3><p>A world-final appearance in January 2026, finishing 0–4 against Aurora Gaming PH.</p></div>
-        <div class="stock-card"><p class="stock-card__label">2026 · Fourth</p><h3>MPL ID Season 18</h3><p>Third in the regular table and fourth after the Surabaya playoffs, with honours for Dingarai and Alexander.</p></div>
+      <div class="record-feature">
+        <article class="record-card">
+          <span class="record-card__year" aria-hidden="true">2020</span>
+          <div class="record-card__body">
+            <p class="record-card__label">Champion</p>
+            <h3>MPL Invitational</h3>
+            <p>A 3–0 grand final sweep of Bren Esports, with an 11–0 map record across the tournament.</p>
+          </div>
+        </article>
+        <div class="record-side">
+          <article class="record-row">
+            <p class="record-card__label">2026 · Runner-up</p>
+            <h3>M7 World Championship</h3>
+            <p>A world-final appearance in January 2026, finishing 0–4 against Aurora Gaming PH.</p>
+          </article>
+          <article class="record-row">
+            <p class="record-card__label">2026 · Fourth</p>
+            <h3>MPL ID Season 18</h3>
+            <p>Third in the regular table and fourth after the Surabaya playoffs, with honours for Dingarai and Alexander.</p>
+          </article>
+        </div>
       </div>
     </section>
 

@@ -403,12 +403,14 @@ body {
   }
   .light-pool { animation: light-breathe 9s ease-in-out infinite; }
   .fan { animation: fan-breathe 11s ease-in-out infinite; }
-  .brand-mark { animation: light-breathe 12s ease-in-out infinite; }
 }
+
+.card:active { transform: scale(0.985) translateY(2px); }
 
 @media (prefers-reduced-motion: reduce) {
   .card, .card__label, .hint, .detail, .detail__card, .scene-root { transition-duration: 0ms; }
-  .light-pool, .fan, .brand-mark, .detail.is-open { animation: none; }
+  .light-pool, .fan, .detail.is-open { animation: none; }
+  .card:active { transform: none; }
 }
 
 @media (hover: none) {
