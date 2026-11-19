@@ -124,10 +124,12 @@
 }
 .player-tile__lane img,
 .sub-lane img {
-  width: 1.05em;
-  height: 1.05em;
+  width: 1.15em;
+  height: 1.15em;
   object-fit: contain;
   flex: 0 0 auto;
+  background: rgba(231,214,180,0.9);
+  padding: 1px;
 }
 .player-tile__real {
   display: block;

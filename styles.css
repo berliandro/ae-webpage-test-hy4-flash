@@ -392,7 +392,8 @@ picture.hand, picture.thumb { display:block; }
   height: 1.4em;
   flex: 0 0 auto;
   object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(78%) sepia(40%) saturate(720%) hue-rotate(354deg) brightness(101%) contrast(88%);
+  background: rgba(231,214,180,0.9);
+  padding: 2px;
 }
 
 .detail__facts {

@@ -1,24 +1,22 @@
 # Lane icons
 
-Five official MLBB lane icons copied (not modified) from the reusable asset library:
+Five pixel-art lane icons used on every player card, the player detail view and the roster page.
 
-`D:\! Coding\~ shit projects\! reuseable assets\MLBB Lane icon\transparent\mlbb-{exp,jungler,mid,gold,roamer}-red-transparent.svg`
+Source (in the reusable asset library, copied unmodified):
 
-The **red / transparent** variant was chosen for all five so the set has one consistent
-colour treatment and no solid background, allowing the icons to sit on the cards' cream
-name plaques. Renamed locally to `lane-<role>.svg`; original artwork is untouched.
+`D:\! Coding\~ shit projects\! reuseable assets\MLBB Lane icon\AI Generated\`
 
-Mapping: `lane-exp.svg` → Nino, `lane-jungler.svg` → Affan, `lane-mid.svg` → Dalvin,
-`lane-gold.svg` → Dingarai, `lane-roamer.svg` → Alexander.
+| Site role | Source file | Local file |
+|---|---|---|
+| EXP Laner | `Exp-lane-for-light-bg.png` | `ai/exp.png` |
+| Jungler | `Jungler-for-light-bg.png` | `ai/jungler.png` |
+| Mid Laner | `Mid-lane-for-light-bg.png` | `ai/mid.png` |
+| Gold Laner | `Gold-lane-for-light-bg.png` | `ai/gold.png` |
+| Roamer | `Roamer-for-light-bg.png` | `ai/roamer.png` |
 
-# Fonts
+All five share one pixel grid, dark outline, cream/charcoal modelling and restrained red/gold
+accents. The source PNGs are transparent and were designed for light backgrounds, so on dark
+UI surfaces they sit on a small cream plaque for legibility. On the player cards they sit
+directly on the cream name plate, as intended by the source artwork.
 
-`../fonts/Silkscreen-Regular.ttf` and `Silkscreen-Bold.ttf` — Silkscreen by Jason Kottke,
-licensed under the SIL Open Font License 1.1 (full text in `assets/fonts/OFL.txt`).
-Self-hosted with `font-display: swap`. WOFF2 files are the primary source (TTF retained
-as a fallback); both contain the same glyphs. Used only for display roles (card names,
-detail headings, eyebrows); body copy keeps the readable system stack.
-
-Hero WebP siblings (`*.webp` next to each hero PNG) are **lossless** conversions of the
-original artwork with byte-identical visible pixels. Browsers supporting WebP load those;
-others fall back to the re-encoded, metadata-stripped PNGs.
+The earlier vector MLBB icon set was removed from use and deleted from this folder.

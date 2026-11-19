@@ -43,7 +43,7 @@
     const d = card.dataset;
     fields.rank.textContent = d.rank + " card · Alter Ego";
     fields.name.textContent = d.name;
-    fields.laneIcon.src = "assets/hero/lane-icons/lane-" + (d.lane || "gold") + ".svg";
+    fields.laneIcon.src = "assets/hero/lane-icons/ai/" + (d.lane || "gold") + ".png";
     fields.role.textContent = d.role;
     fields.real.textContent = d.real;
     fields.born.textContent = d.born;
