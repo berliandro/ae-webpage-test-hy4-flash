@@ -63,6 +63,17 @@ All rasters in `assets/hero/` were produced by the separate Pixie image-editing 
 - **Media** (`media.html`) — five embedded official YouTube videos, seven verified official channel links. No invented galleries or fan uploads presented as official.
 - All factual claims cite MPL Indonesia and/or Liquipedia in each page footer. Unverifiable details (exact founding date, official slogan status) are explicitly hedged.
 
+## Player-card identity
+
+The five cards are an original Alter Ego collectible set, not a copy of any commercial
+TCG. The lower information panel is composed inside `.card__plane` so the existing
+four-point homography carries every ornament, label and insignia through the FLIP
+pickup, upright inspection and return. Panel system: parchment plate, four CSS-drawn
+corner brackets, rank-and-suit chip, edition label, large pixel-font nickname, diamond
+divider, oversized pixel lane insignia with role label, and a secondary captain tag on
+Nino. Sizing uses container queries so the system holds from mobile fan to enlarged
+detail. Artwork, ranks, suits, perspective, card assignment and interaction are unchanged.
+
 ## Open decisions (not invented)
 
 - Player → rank creative mapping remains a creative identity, clearly labelled as such.
