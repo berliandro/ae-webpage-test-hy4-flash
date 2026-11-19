@@ -10,10 +10,11 @@
 <title>Roster — Alter Ego MPL ID</title>
 <link rel="stylesheet" href="styles.css?v=41">
 <link rel="stylesheet" href="site.css?v=11">
+<link rel="stylesheet" href="roster.css?v=4">
 <script src="site.js?v=1" defer></script>
-<script src="motion.js?v=1" defer></script>
+<script src="motion.js?v=2" defer></script>
 </head>
-<body class="subpage">
+<body class="subpage roster-page">
 <a class="skip-link" href="#mainContent">Skip to content</a>
 <header class="site-nav" id="siteNav">
   <nav class="nav-links nav-links--left" aria-label="Primary left">
@@ -30,72 +31,135 @@
 </header>
 
 <main id="mainContent">
-  <section class="page-head">
+  <section class="page-head roster-head">
     <div class="page-head__inner">
       <h1 class="page-title">The Hand</h1>
-      <p class="page-deck">Five players, five positions, one table. The starting five for Alter Ego's Mobile Legends: Bang Bang team in MPL Indonesia Season 18, with the registered substitutes who complete the roster.</p>
+      <p class="page-deck">Five starters. Three registered substitutes. One table.</p>
     </div>
   </section>
 
-  <div class="page-content">
-    <section class="section">
-      <div class="section-head"><h2>Starting five</h2><span class="section-note">MPL ID Season 18</span></div>
-      <p class="prose" style="margin-bottom:var(--sp-3)">The rank on each card — Ace through Ten — is a creative card-game identity for this site, not an official team designation. Names, real names and lane roles are sourced from the official MPL Indonesia roster and Liquipedia. Nino is the team captain.</p>
-      <div class="roster-primary">
-        <article class="player-tile">
-          <a href="index.html" aria-label="View Dingarai in the interactive hand"><img src="assets/hero/cards/card-10.png" alt="Ten card — Dingarai" decoding="async" loading="lazy"></a>
-          <p class="player-tile__rank">Ten</p>
-          <p class="player-tile__name">Dingarai</p>
-          <p class="player-tile__role">Gold Lane</p>
-          <p class="player-tile__real">Arifudin Dingarai Putra</p>
+  <div class="page-content roster-content">
+    <section class="section roster-main">
+      <div class="section-head">
+        <h2>Starting five</h2>
+        <span class="section-note">MPL ID · Season 18</span>
+      </div>
+      <p class="roster-note">Card ranks are a site motif, not official designations. Names, roles and real names follow the official roster.</p>
+
+      <div class="roster-primary" role="list">
+        <article class="player-tile" role="listitem">
+          <a class="player-tile__link" href="index.html" aria-label="Inspect Dingarai at the table">
+            <span class="player-frame">
+              <img class="player-frame__art" src="assets/hero/cards/card-10.webp" alt="" decoding="async">
+            </span>
+            <span class="player-tile__body">
+              <span class="player-tile__rank">Ten</span>
+              <span class="player-tile__name">Dingarai</span>
+              <span class="player-tile__lane"><img src="assets/hero/lane-icons/lane-gold.svg" alt=""> Gold Laner</span>
+              <span class="player-tile__real">Arifudin Dingarai Putra</span>
+            </span>
+          </a>
         </article>
-        <article class="player-tile">
-          <a href="index.html" aria-label="View Affan in the interactive hand"><img src="assets/hero/cards/card-jack.png" alt="Jack card — Affan" decoding="async" loading="lazy"></a>
-          <p class="player-tile__rank">Jack</p>
-          <p class="player-tile__name">Affan</p>
-          <p class="player-tile__role">Jungler</p>
-          <p class="player-tile__real">Andi Muhammad Affan Wahyudi</p>
+
+        <article class="player-tile" role="listitem">
+          <a class="player-tile__link" href="index.html" aria-label="Inspect Affan at the table">
+            <span class="player-frame">
+              <img class="player-frame__art" src="assets/hero/cards/card-jack.webp" alt="" decoding="async">
+            </span>
+            <span class="player-tile__body">
+              <span class="player-tile__rank">Jack</span>
+              <span class="player-tile__name">Affan</span>
+              <span class="player-tile__lane"><img src="assets/hero/lane-icons/lane-jungler.svg" alt=""> Jungler</span>
+              <span class="player-tile__real">Andi Muhammad Affan Wahyudi</span>
+            </span>
+          </a>
         </article>
-        <article class="player-tile">
-          <a href="index.html" aria-label="View Dalvin in the interactive hand"><img src="assets/hero/cards/card-queen.png" alt="Queen card — Dalvin" decoding="async" loading="lazy"></a>
-          <p class="player-tile__rank">Queen</p>
-          <p class="player-tile__name">Dalvin</p>
-          <p class="player-tile__role">Mid Lane</p>
-          <p class="player-tile__real">Dalvin Ramadhana Putra</p>
+
+        <article class="player-tile" role="listitem">
+          <a class="player-tile__link" href="index.html" aria-label="Inspect Dalvin at the table">
+            <span class="player-frame">
+              <img class="player-frame__art" src="assets/hero/cards/card-queen.webp" alt="" decoding="async">
+            </span>
+            <span class="player-tile__body">
+              <span class="player-tile__rank">Queen</span>
+              <span class="player-tile__name">Dalvin</span>
+              <span class="player-tile__lane"><img src="assets/hero/lane-icons/lane-mid.svg" alt=""> Mid Laner</span>
+              <span class="player-tile__real">Dalvin Ramadhana Putra</span>
+            </span>
+          </a>
         </article>
-        <article class="player-tile">
-          <a href="index.html" aria-label="View Alexander in the interactive hand"><img src="assets/hero/cards/card-king.png" alt="King card — Alexander" decoding="async" loading="lazy"></a>
-          <p class="player-tile__rank">King</p>
-          <p class="player-tile__name">Alexander</p>
-          <p class="player-tile__role">Roamer</p>
-          <p class="player-tile__real">Alexander Owen Marcetami Buhe</p>
+
+        <article class="player-tile" role="listitem">
+          <a class="player-tile__link" href="index.html" aria-label="Inspect Alexander at the table">
+            <span class="player-frame">
+              <img class="player-frame__art" src="assets/hero/cards/card-king.webp" alt="" decoding="async">
+            </span>
+            <span class="player-tile__body">
+              <span class="player-tile__rank">King</span>
+              <span class="player-tile__name">Alexander</span>
+              <span class="player-tile__lane"><img src="assets/hero/lane-icons/lane-roamer.svg" alt=""> Roamer</span>
+              <span class="player-tile__real">Alexander Owen Marcetami Buhe</span>
+            </span>
+          </a>
         </article>
-        <article class="player-tile">
-          <a href="index.html" aria-label="View Nino in the interactive hand"><img src="assets/hero/cards/card-ace.png" alt="Ace card — Nino" decoding="async" loading="lazy"></a>
-          <p class="player-tile__rank">Ace · Captain</p>
-          <p class="player-tile__name">Nino</p>
-          <p class="player-tile__role">EXP Lane</p>
-          <p class="player-tile__real">Syauki Fauzan Sumarno</p>
+
+        <article class="player-tile player-tile--captain" role="listitem">
+          <a class="player-tile__link" href="index.html" aria-label="Inspect Nino, captain, at the table">
+            <span class="player-frame">
+              <img class="player-frame__art" src="assets/hero/cards/card-ace.webp" alt="" decoding="async">
+              <span class="player-frame__captain">Captain</span>
+            </span>
+            <span class="player-tile__body">
+              <span class="player-tile__rank">Ace</span>
+              <span class="player-tile__name">Nino</span>
+              <span class="player-tile__lane"><img src="assets/hero/lane-icons/lane-exp.svg" alt=""> EXP Laner</span>
+              <span class="player-tile__real">Syauki Fauzan Sumarno</span>
+            </span>
+          </a>
         </article>
       </div>
       <a class="action-link" href="index.html">Meet the hand at the table <span aria-hidden="true">&#8599;</span></a>
     </section>
 
     <section class="section roster-subs">
-      <div class="section-head"><h2>Registered substitutes</h2><span class="section-note">Season 18 roster</span></div>
-      <p class="prose" style="margin-bottom:var(--sp-3)">Also registered on the official Season 18 roster. Portraits are not included here because verified, licensable images were not available.</p>
-      <div class="grid-3">
-        <div class="sub-card"><div class="sub-card__mark" aria-hidden="true">RE</div><div><p class="sub-card__name">Reyy</p><p class="sub-card__meta">Jungler · Reynaldo Ferdiand · joined 4 Mar 2026</p></div></div>
-        <div class="sub-card"><div class="sub-card__mark" aria-hidden="true">HA</div><div><p class="sub-card__name">Halim (Cyruz)</p><p class="sub-card__meta">Mid Lane · Muhammad Halim Adicondro · joined 5 Aug 2025</p></div></div>
-        <div class="sub-card"><div class="sub-card__mark" aria-hidden="true">IV</div><div><p class="sub-card__name">Ivann</p><p class="sub-card__meta">Roamer · Vincentsius Ivan Adrianto · returned 2 Aug 2026</p></div></div>
+      <div class="section-head">
+        <h2>Registered substitutes</h2>
+        <span class="section-note">Season 18 roster</span>
+      </div>
+      <p class="roster-note">Also registered on the official Season 18 roster — not confirmed starters.</p>
+      <div class="sub-roster" role="list">
+        <article class="sub-card" role="listitem">
+          <div class="sub-portrait"><img src="assets/roster/substitutes/reyy-pixel.png" alt="Reyy" decoding="async" loading="lazy" width="500" height="500"></div>
+          <div class="sub-info">
+            <h3 class="sub-name">Reyy</h3>
+            <p class="sub-lane"><img src="assets/hero/lane-icons/lane-jungler.svg" alt=""> Jungler</p>
+            <p class="sub-meta">Reynaldo Ferdiand · joined 4 Mar 2026</p>
+          </div>
+        </article>
+        <article class="sub-card" role="listitem">
+          <div class="sub-portrait"><img src="assets/roster/substitutes/halim-pixel.png" alt="Halim (Cyruz)" decoding="async" loading="lazy" width="500" height="500"></div>
+          <div class="sub-info">
+            <h3 class="sub-name">Halim <span>(Cyruz)</span></h3>
+            <p class="sub-lane"><img src="assets/hero/lane-icons/lane-mid.svg" alt=""> Mid Laner</p>
+            <p class="sub-meta">Muhammad Halim Adicondro · joined 5 Aug 2025</p>
+          </div>
+        </article>
+        <article class="sub-card" role="listitem">
+          <div class="sub-portrait"><img src="assets/roster/substitutes/ivann-pixel.png" alt="Ivann" decoding="async" loading="lazy" width="500" height="500"></div>
+          <div class="sub-info">
+            <h3 class="sub-name">Ivann</h3>
+            <p class="sub-lane"><img src="assets/hero/lane-icons/lane-roamer.svg" alt=""> Roamer</p>
+            <p class="sub-meta">Vincentsius Ivan Adrianto · returned 2 Aug 2026</p>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section roster-staff">
       <div class="section-head"><h2>Coaching staff</h2><span class="section-note">Official roster</span></div>
-      <div class="grid-2">
-        <div class="stock-card"><p class="stock-card__label">Head Coach</p><h3>Xepher</h3><p>Kenny Deo · with Alter Ego since 4 March 2026.</p></div>
-        <div class="stock-card"><p class="stock-card__label">Assistant Coach</p><h3>Styx</h3><p>Michael Abraham · with Alter Ego since 5 August 2025.</p></div>
+      <div class="staff-line">
+        <div class="staff-entry"><span class="staff-role">Head Coach</span><strong>Xepher</strong><span>Kenny Deo</span></div>
+        <div class="staff-entry"><span class="staff-role">Assistant Coach</span><strong>Styx</strong><span>Michael Abraham</span></div>
       </div>
     </section>
   </div>
@@ -103,7 +167,7 @@
 
 <footer class="site-footer"><div class="site-footer__inner">
   <div class="site-footer__brand"><img src="assets/hero/logo-ae.png" alt="" width="44" height="44" loading="lazy"><span>Alter Ego · MPL ID</span></div>
-  <p class="site-footer__note">Fan-made. Roster facts from <a href="https://id-mpl.com/en/team/ae" target="_blank" rel="noopener noreferrer">MPL Indonesia</a> and <a href="https://liquipedia.net/mobilelegends/Alter_Ego" target="_blank" rel="noopener noreferrer">Liquipedia</a> (CC BY-SA 3.0).</p>
+  <p class="site-footer__note">Fan-made. Roster and substitute portraits: <a href="https://id-mpl.com/en/team/ae" target="_blank" rel="noopener noreferrer">MPL Indonesia</a> (© Moonton; permission for reuse not explicitly stated) and <a href="https://liquipedia.net/mobilelegends/Alter_Ego" target="_blank" rel="noopener noreferrer">Liquipedia</a> (CC BY-SA 3.0). Substitutes are registered players, not confirmed starters.</p>
 </div></footer>
 </body>
 </html>

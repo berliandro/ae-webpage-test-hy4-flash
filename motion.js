@@ -51,6 +51,15 @@
       entry.target.classList.add("is-revealed");
       io.unobserve(entry.target);
     });
+    // A jump-scroll (anchor, restore, find-in-page) can skip a section entirely.
+    // Anything at or above the current viewport must be visible too.
+    targets.forEach(function (node) {
+      if (node.classList.contains("is-revealed")) return;
+      if (node.getBoundingClientRect().top < window.innerHeight) {
+        node.classList.add("is-revealed");
+        io.unobserve(node);
+      }
+    });
   }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
 
   targets.forEach(function (node) { io.observe(node); });
