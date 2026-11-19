@@ -1,101 +1,75 @@
-/* Original Alter Ego collectible-card panel.
-   Everything here lives inside .card__plane, so the existing homography
-   carries the frame, text and ornaments through every card movement. */
+/* Printed-on-card collectible typography.
+   There is no UI panel here: the composition sits directly on the parchment
+   area already painted into each card PNG, and lives inside .card__plane so
+   the homography carries it through pickup, inspection and return. */
 
 .card__plane { container-type: inline-size; }
 
 .card__label {
-  width: 82cqw;
-  max-width: 292px;
+  width: 74cqw;
+  max-width: 260px;
   transform: translate(-50%, -50%);
   pointer-events: none;
+  text-align: center;
 }
 
 .card__plate {
-  --ink-plate: #33281f;
-  --plate-orn: rgba(104, 63, 46, 0.72);
-  position: relative;
+  --plate-ink: #2a1f19;
+  --plate-muted: #5a4433;
+  --plate-red: #8c3031;
   display: block;
-  padding: 4cqw 4.5cqw 4.5cqw;
-  text-align: center;
-  color: var(--ink-plate);
-  border: 1px solid rgba(92, 58, 42, 0.55);
-  background-color: rgba(232, 209, 174, 0.34);
-  box-shadow: inset 0 0 0 2px rgba(255, 240, 208, 0.28), 0 2px 0 rgba(58, 36, 28, 0.18);
+  padding: 1.5cqw 0;
+  color: var(--plate-ink);
 }
 
-/* Four pixel corner brackets, drawn rather than faked with gradients. */
-.card__plate::before,
-.card__plate::after,
-.card__plate-top::before,
-.card__plate-top::after {
-  content: "";
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  pointer-events: none;
-  color: var(--plate-orn);
-}
-.card__plate::before { top: 3px; left: 3px; border-top: 1px solid; border-left: 1px solid; }
-.card__plate::after { bottom: 3px; right: 3px; border-bottom: 1px solid; border-right: 1px solid; }
-.card__plate-top::before { top: 3px; right: 3px; border-top: 1px solid; border-right: 1px solid; }
-.card__plate-top::after { bottom: 3px; left: 3px; border-bottom: 1px solid; border-left: 1px solid; }
-
+/* Top metadata: rank, a hairline, edition, optional captain. No container. */
 .card__plate-top {
   display: flex;
   align-items: center;
-  gap: 1.8cqw;
-  margin-bottom: 2.2cqw;
+  gap: 1.4cqw;
+  margin-bottom: 2.4cqw;
 }
-
 .card__rank-mark {
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 8cqw;
-  height: 9cqw;
-  min-width: 14px;
-  min-height: 16px;
-  border: 1px solid rgba(58, 36, 28, 0.7);
-  background: rgba(129, 48, 49, 0.9);
-  color: #f3e4c6;
+  gap: 0.3cqw;
+  flex: 0 0 auto;
+  color: var(--plate-ink);
   line-height: 1;
-  box-shadow: inset 0 0 0 1px rgba(255, 232, 194, 0.18);
 }
 .card__rank-letter {
   font-family: var(--font-display);
-  font-size: 4.6cqw;
+  font-size: 4.2cqw;
   font-weight: 700;
 }
 .card__suit {
   font-family: Georgia, serif;
-  font-size: 3cqw;
+  font-size: 3.4cqw;
   line-height: 0.9;
+  color: var(--plate-red);
 }
-
 .card__hairline {
   flex: 1 1 auto;
   height: 1px;
-  background: linear-gradient(90deg, rgba(92,58,42,0.5), rgba(92,58,42,0.08));
+  background: rgba(74, 49, 36, 0.42);
 }
 .card__edition {
   font-family: var(--font-display);
-  font-size: 3.4cqw;
+  font-size: 3.2cqw;
   letter-spacing: 0.02em;
-  color: #6b4c37;
+  color: var(--plate-muted);
   white-space: nowrap;
 }
 
 .card__name {
   display: block;
   font-family: var(--font-display);
-  font-size: clamp(9px, 8.4cqw, 25px);
+  font-size: clamp(10px, 8.6cqw, 26px);
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: 0.005em;
   text-transform: uppercase;
-  color: #241a15;
+  color: var(--plate-ink);
   white-space: nowrap;
 }
 
@@ -104,80 +78,73 @@
   align-items: center;
   justify-content: center;
   height: 1px;
-  margin: 2.6cqw 6cqw 2.4cqw;
-  background: rgba(92, 58, 42, 0.38);
+  margin: 2.6cqw 8cqw 2.4cqw;
+  background: rgba(74, 49, 36, 0.42);
 }
 .card__divider span {
   width: 3px;
   height: 3px;
-  background: var(--ae-red);
+  background: var(--plate-red);
   transform: rotate(45deg);
-  box-shadow: 0 0 0 1px rgba(255,240,208,0.5);
 }
 
+/* Lane insignia printed inline beside the role — no badge, no plaque. */
 .card__meta {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2cqw;
+  gap: 1.8cqw;
 }
 .card__lane-badge {
-  display: grid;
-  place-items: center;
-  width: 13cqw;
-  height: 13cqw;
-  min-width: 17px;
-  min-height: 17px;
-  padding: 1px;
-  border: 1px solid rgba(58, 36, 28, 0.6);
-  background: rgba(249, 234, 202, 0.78);
-  box-shadow: inset 0 0 0 1px rgba(255, 248, 226, 0.55);
+  display: inline-flex;
   flex: 0 0 auto;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
 }
 .card__plane .card__lane-icon {
-  width: 100%;
-  height: 100%;
+  width: 16cqw;
+  height: 16cqw;
+  min-width: 18px;
+  min-height: 18px;
+  object-fit: contain;
   background: none;
   padding: 0;
   filter: none;
+  image-rendering: pixelated;
 }
 .card__role {
   font-family: var(--font-display);
-  font-size: clamp(8px, 4.4cqw, 13px);
-  font-weight: 400;
+  font-size: clamp(8px, 4.8cqw, 14px);
+  font-weight: 700;
   line-height: 1.1;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: #4a3124;
+  color: var(--plate-ink);
   text-align: left;
 }
+
 .card__captain {
-  flex: 0 0 auto;
-  padding: 0.5cqw 1.4cqw;
-  background: rgba(129, 48, 49, 0.88);
-  color: #f7e9cc;
+  display: block;
+  margin-top: 1.6cqw;
   font-family: var(--font-display);
-  font-size: 3.2cqw;
-  letter-spacing: 0.04em;
+  font-size: 3cqw;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
+  color: var(--plate-red);
 }
 
-/* Narrow fan: the blank plate on the source art is proportionally smaller. */
+/* Red suits stay AE crimson; black suits print in charcoal. */
+.card:nth-child(-n+2) .card__suit,
+.card:nth-child(5) .card__suit { color: var(--plate-ink); }
+
 @media (max-aspect-ratio: 4/5) {
-  .card__label { width: 66cqw; }
-  .card__plate { padding: 3cqw 3.5cqw 3.5cqw; }
-  .card__name { font-size: clamp(8px, 7.6cqw, 22px); }
-  .card__plate-top { margin-bottom: 1.6cqw; }
-  .card__divider { margin: 2cqw 5cqw 1.8cqw; }
+  .card__label { width: 70cqw; }
+  .card__name { font-size: clamp(8px, 8cqw, 22px); }
+  .card__plane .card__lane-icon { width: 18cqw; height: 18cqw; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .card__plate { box-shadow: inset 0 0 0 2px rgba(255,240,208,0.32), inset 0 0 0 3px rgba(92,58,42,0.18); }
+  .card__label { transition: none; }
 }
-
-/* Black-playing-card suits use ink, red suits keep the AE crimson. */
-.card:nth-child(-n+2) .card__suit,
-.card:nth-child(5) .card__suit { color: #241a15; }
-
-/* The upright inspection is the payoff: let the collectible plate breathe. */
-.card.is-flying .card__label { width: 88cqw; }
