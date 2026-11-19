@@ -1,0 +1,102 @@
+{
+  "source": "C:/Users/nberl/Downloads/Retro Pixel Art Poker Arena.png",
+  "canvas": {
+    "width": 1672,
+    "height": 941
+  },
+  "assets": [
+    {
+      "file": "background.png",
+      "role": "arena environment",
+      "width": 1672,
+      "height": 941,
+      "canvas_offset": [
+        0,
+        0
+      ],
+      "inferred": "banner+felt block synthesis from local palettes"
+    },
+    {
+      "file": "cards/card-10.png",
+      "role": "playing card 10",
+      "width": 263,
+      "height": 410,
+      "canvas_offset": [
+        180,
+        465
+      ],
+      "z_order": 0,
+      "inference": "exemplar fill of 29336 occluded px; plaque/rank cleaned"
+    },
+    {
+      "file": "cards/card-jack.png",
+      "role": "playing card J",
+      "width": 262,
+      "height": 412,
+      "canvas_offset": [
+        430,
+        375
+      ],
+      "z_order": 1,
+      "inference": "exemplar fill of 20033 occluded px; plaque/rank cleaned"
+    },
+    {
+      "file": "cards/card-queen.png",
+      "role": "playing card Q",
+      "width": 263,
+      "height": 413,
+      "canvas_offset": [
+        685,
+        309
+      ],
+      "z_order": 2,
+      "inference": "exemplar fill of 4328 occluded px; plaque/rank cleaned"
+    },
+    {
+      "file": "cards/card-king.png",
+      "role": "playing card K",
+      "width": 263,
+      "height": 412,
+      "canvas_offset": [
+        935,
+        320
+      ],
+      "z_order": 3,
+      "inference": "exemplar fill of 11807 occluded px; plaque/rank cleaned"
+    },
+    {
+      "file": "cards/card-ace.png",
+      "role": "playing card A",
+      "width": 274,
+      "height": 370,
+      "canvas_offset": [
+        1185,
+        392
+      ],
+      "z_order": 4,
+      "inference": "exemplar fill of 8287 occluded px; plaque/rank cleaned"
+    },
+    {
+      "file": "hand-left.png",
+      "role": "hand",
+      "width": 492,
+      "height": 212,
+      "canvas_offset": [
+        109,
+        729
+      ],
+      "inferred": "exemplar finger/skin completion"
+    },
+    {
+      "file": "hand-right.png",
+      "role": "hand",
+      "width": 457,
+      "height": 182,
+      "canvas_offset": [
+        1024,
+        759
+      ],
+      "inferred": "exemplar finger/skin completion"
+    }
+  ]
+}

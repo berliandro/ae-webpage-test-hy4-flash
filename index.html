@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#131017">
+<title>Alter Ego — The Hand You're Dealt</title>
+<link rel="stylesheet" href="styles.css?v=35">
+<link rel="stylesheet" href="site.css?v=5">
+<script src="site.js?v=1" defer></script>
+</head>
+<body>
+<header class="site-nav" id="siteNav">
+  <nav class="nav-links nav-links--left" aria-label="Primary left"><a href="index.html" aria-current="page">Home</a><a href="roster.html">Roster</a></nav>
+  <a class="nav-brand" href="index.html" aria-label="Alter Ego home"><img src="assets/hero/logo-ae.png" alt="Alter Ego" width="56" height="56"></a>
+  <nav class="nav-links nav-links--right" id="navLinks" aria-label="Primary right"><a href="competition.html">Competition</a><a href="legacy.html">Legacy</a><a href="media.html">Media</a></nav>
+  <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu"><span>Menu</span></button>
+</header>
+<a class="skip-link" href="#mainContent">Skip to content</a>
+<main class="table hero" aria-label="Alter Ego — the hand you're dealt" id="mainContent">
+  <h1 class="sr-only">Alter Ego — the hand you're dealt</h1>
+  <p class="sr-only" id="howTo">Five Alter Ego players are held as cards. Press Tab to focus a card, then Enter to reveal the player. Use left and right arrows to move between players, and Escape to close.</p>
+  <!-- One rigid scene: arena + hand rotate together as a single layer. -->
+  <div class="scene-root" id="sceneRoot">
+    <div class="arena" aria-hidden="true">
+      <img src="assets/hero/arena-blurred.png" alt="" decoding="async" fetchpriority="high">
+    </div>
+    <div class="light-pool" aria-hidden="true"></div>
+
+    <div class="hand-group">
+      <img class="hand hand--left" decoding="async" src="assets/hero/hand-left.png" alt="" aria-hidden="true">
+      <img class="hand hand--right" decoding="async" src="assets/hero/hand-right.png" alt="" aria-hidden="true">
+
+      <div class="fan" id="fan">
+        <button class="card" type="button" style="--x:10.227%;--y:40.596%;--w:20.274%;--h:49.734%;--mx:7%;--my:61%;--mw:32%;--mh:22%"
+          data-name="Dingarai" data-rank="Ten" data-role="Gold Lane"
+          data-real="Arifudin Dingarai Putra" data-born="30 April 2005"
+          data-heroes="Granger, Claude, Harith, Freya, Obsidia"
+          data-straight="14.75"
+          aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="Ten — Dingarai, Gold Lane">
+          <img decoding="async" loading="lazy" src="assets/hero/cards/card-10.png" alt="">
+          <span class="card__label" aria-hidden="true"><span class="card__name">Dingarai</span><span class="card__role">Gold Lane</span></span>
+        </button>
+        <button class="card" type="button" style="--x:25.598%;--y:34.537%;--w:18.363%;--h:48.141%;--mx:22%;--my:59%;--mw:31%;--mh:22%"
+          data-name="Affan" data-rank="Jack" data-role="Jungler"
+          data-real="Andi Muhammad Affan Wahyudi" data-born="27 June 2004"
+          data-heroes="Fanny, Nolan, Ling, Leomord"
+          data-straight="8.75"
+          aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="Jack — Affan, Jungler">
+          <img decoding="async" loading="lazy" src="assets/hero/cards/card-jack.png" alt="">
+          <span class="card__label" aria-hidden="true"><span class="card__name">Affan</span><span class="card__role">Jungler</span></span>
+        </button>
+        <button class="card" type="button" style="--x:40.731%;--y:31.882%;--w:16.924%;--h:46.334%;--mx:37%;--my:57%;--mw:30%;--mh:21%"
+          data-name="Dalvin" data-rank="Queen" data-role="Mid Lane"
+          data-real="Dalvin Ramadhana Putra" data-born="23 November 2002"
+          data-heroes="Yve, Pharsa, Valentina, Faramis, Zhuxin"
+          data-straight="2"
+          aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="Queen — Dalvin, Mid Lane">
+          <img decoding="async" loading="lazy" src="assets/hero/cards/card-queen.png" alt="">
+          <span class="card__label" aria-hidden="true"><span class="card__name">Dalvin</span><span class="card__role">Mid Lane</span></span>
+        </button>
+        <button class="card" type="button" style="--x:53.228%;--y:33.794%;--w:19.438%;--h:48.459%;--mx:51%;--my:59%;--mw:31%;--mh:22%"
+          data-name="Alexander" data-rank="King" data-role="Roamer"
+          data-real="Alexander Owen Marcetami Buhe" data-born="20 September 2004"
+          data-heroes="Gatotkaca, Grock"
+          data-straight="-7.5"
+          aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="King — Alexander, Roamer">
+          <img decoding="async" loading="lazy" src="assets/hero/cards/card-king.png" alt="">
+          <span class="card__label" aria-hidden="true"><span class="card__name">Alexander</span><span class="card__role">Roamer</span></span>
+        </button>
+        <button class="card" type="button" style="--x:65.97%;--y:39.532%;--w:23.085%;--h:52.178%;--mx:65%;--my:61%;--mw:33%;--mh:23%"
+          data-name="Nino" data-rank="Ace" data-role="EXP Lane · Captain"
+          data-real="Syauki Fauzan Sumarno" data-born="30 April 2004"
+          data-heroes="Benedetta, Yu Zhong, Cici, Phoveus, Arlott"
+          data-straight="-18"
+          aria-haspopup="dialog" aria-expanded="false" aria-controls="detail" aria-describedby="howTo" aria-label="Ace — Nino, EXP Lane, captain">
+          <img decoding="async" loading="lazy" src="assets/hero/cards/card-ace.png" alt="">
+          <span class="card__label" aria-hidden="true"><span class="card__name">Nino</span><span class="card__role">EXP Lane · Captain</span></span>
+        </button>
+      </div>
+
+      <img class="thumb thumb--left" decoding="async" src="assets/hero/thumb-left.png" alt="" aria-hidden="true">
+      <img class="thumb thumb--right" decoding="async" src="assets/hero/thumb-right.png" alt="" aria-hidden="true">
+    </div>
+  </div>
+
+  <p class="hint" id="hint">Tap a card to meet the player.</p>
+
+  <!-- Card focus: the chosen card straightens on the left; details sit beside it. -->
+  <section class="detail" id="detail" role="dialog" aria-modal="true" aria-labelledby="detailName" aria-describedby="detailRole" aria-hidden="true">
+    <div class="detail__nav" aria-label="Player navigation">
+      <button class="detail__nav-btn" id="detailPrev" type="button" aria-label="Previous player">&#8592;</button>
+      <button class="detail__nav-btn" id="detailNext" type="button" aria-label="Next player">&#8594;</button>
+    </div>
+    <button class="detail__close" id="detailClose" type="button" aria-label="Close card details">Close</button>
+    <div class="detail__stage">
+      <img class="detail__card" id="detailCard" src="assets/hero/cards/card-ace.png" alt="" decoding="async">
+      <div class="detail__info">
+        <p class="detail__eyebrow" id="detailRank" aria-hidden="true"></p>
+        <h2 class="detail__name" id="detailName" tabindex="-1"></h2>
+        <p class="detail__role" id="detailRole"></p>
+        <p class="detail__real" id="detailReal"></p>
+        <p class="detail__born" id="detailBorn"></p>
+        <p class="detail__heroes" id="detailHeroes"></p>
+        <p class="sr-only" id="detailAnnounce" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="home-sections">
+  <div class="page-content">
+    <section class="section home-intro">
+      <div>
+        <h2 class="home-intro__title">Five players. One table.</h2>
+        <p class="home-intro__lede">Alter Ego is an Indonesian Mobile Legends: Bang Bang team. The cards in your hand are its starting five for MPL Indonesia Season 18: Nino, Affan, Dalvin, Dingarai and Alexander. Each one is a real competitor with a verified lane and a place at the table.</p>
+        <a class="action-link" href="roster.html">Meet the roster <span aria-hidden="true">&#8599;</span></a>
+      </div>
+      <div class="home-intro__aside">
+        <p class="stock-card__label">Season 18 · at a glance</p>
+        <p><strong style="color:var(--cream)">3rd</strong> in the regular season at 10–6, then <strong style="color:var(--cream)">4th</strong> after playoffs. The run ended with elimination on 6 November 2026, a 2–3 loss to Bigetron by Vitality.</p>
+        <p>Captained by Nino. Coached by Xepher and Styx.</p>
+        <a class="action-link" href="competition.html">See the results <span aria-hidden="true">&#8599;</span></a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>A record worth knowing</h2><a class="action-link" href="legacy.html" style="margin:0">All achievements <span aria-hidden="true">&#8599;</span></a></div>
+      <div class="grid-3">
+        <div class="stock-card"><p class="stock-card__label">2020 · Champion</p><h3>MPL Invitational</h3><p>A 3–0 grand final sweep of Bren Esports, with an 11–0 map record across the tournament.</p></div>
+        <div class="stock-card"><p class="stock-card__label">2026 · Runner-up</p><h3>M7 World Championship</h3><p>A world-final appearance in January 2026, finishing 0–4 against Aurora Gaming PH.</p></div>
+        <div class="stock-card"><p class="stock-card__label">2026 · Fourth</p><h3>MPL ID Season 18</h3><p>Third in the regular table and fourth after the Surabaya playoffs, with honours for Dingarai and Alexander.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Watch the table</h2><a class="action-link" href="media.html" style="margin:0">All media <span aria-hidden="true">&#8599;</span></a></div>
+      <p class="prose">Official Alter Ego and MPL Indonesia videos — playoff days, season highlights and the Season 6 grand final — are collected on the media page, alongside verified official channels.</p>
+      <a class="action-link" href="media.html">Open the broadcast <span aria-hidden="true">&#8599;</span></a>
+    </section>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="site-footer__inner">
+  <div class="site-footer__brand"><img src="assets/hero/logo-ae.png" alt="" width="44" height="44" loading="lazy"><span>Alter Ego · MPL ID</span></div>
+  <p class="site-footer__note">Fan-made. Team facts from <a href="https://id-mpl.com/" target="_blank" rel="noopener noreferrer">MPL Indonesia</a> and <a href="https://liquipedia.net/mobilelegends/Alter_Ego" target="_blank" rel="noopener noreferrer">Liquipedia</a> (CC BY-SA 3.0). Not affiliated with Alter Ego or Moonton.</p>
+</div></footer>
+<script src="script.js?v=33"></script>
+</body>
+</html>

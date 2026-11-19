@@ -1,0 +1,30 @@
+{
+  "title": "Homepage hero composition",
+  "question": "Which poker-table composition should carry forward from the approved direction?",
+  "options": [
+    {
+      "id": "centred-fan",
+      "label": "Centred held fan",
+      "thesis": "The five-card fan held at the lower centre, read straight on.",
+      "viewport": "Wide desktop first viewport: fan leads, table and opponents recede behind it.",
+      "risk": "Can read as a conventional hero if the hand loses physical scale.",
+      "comp": ".impeccable/mocks/comp-1-centred-fan.png"
+    },
+    {
+      "id": "intimate-fan",
+      "label": "Intimate close fan",
+      "thesis": "A closer, more overlapping fan with the hand gripping from the left.",
+      "viewport": "Wide desktop first viewport: larger cards, deep shadows, minimal background detail.",
+      "risk": "Overlap may cost legibility of the outer cards.",
+      "comp": ".impeccable/mocks/comp-2-intimate-fan.png"
+    },
+    {
+      "id": "environmental-fan",
+      "label": "Environmental fan",
+      "thesis": "A fan set off-centre with opponents and table storytelling visible.",
+      "viewport": "Wide desktop first viewport: the hand leads while the room proves the stakes.",
+      "risk": "Environmental detail can compete with the hand if it gets too sharp.",
+      "comp": ".impeccable/mocks/comp-3-environmental-fan.png"
+    }
+  ]
+}

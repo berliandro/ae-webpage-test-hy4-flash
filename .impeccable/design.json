@@ -1,0 +1,16 @@
+{
+  "world": "poker-arena-pixel-art",
+  "seededFrom": null,
+  "palette": {
+    "ink": "#131017",
+    "cream": "#e7d6b4",
+    "cream-dim": "#b9a47e",
+    "brass": "#c9a66b",
+    "amber": "#e2be80",
+    "felt-shadow": "#323E3F",
+    "crimson": "#813031"
+  },
+  "sourceCanvas": [1672, 941],
+  "buildPath": "code",
+  "generatedAt": "2026-11-18"
+}
