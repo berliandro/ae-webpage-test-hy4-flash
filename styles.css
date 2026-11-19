@@ -151,7 +151,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.22em;
+  gap: 0.28em;
   text-align: center;
   white-space: nowrap;
   opacity: 0;

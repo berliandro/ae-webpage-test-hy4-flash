@@ -103,6 +103,14 @@
   function init() {
     apply();
     window.addEventListener("resize", schedule, { passive: true });
+    // Each plane's box also changes when the mobile fan rules kick in; observing
+    // it keeps the matrix correct even where a resize event is not dispatched.
+    if (window.ResizeObserver) {
+      var observer = new ResizeObserver(schedule);
+      Array.prototype.forEach.call(document.querySelectorAll(".card__plane"), function (p) {
+        observer.observe(p);
+      });
+    }
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(schedule);
   }
 
