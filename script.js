@@ -17,13 +17,20 @@
 
   const cards = Array.from(fan.querySelectorAll(".card"));
   const fields = {
-    rank: document.querySelector("#detailRank"),
     name: document.querySelector("#detailName"),
     laneIcon: document.querySelector("#detailLaneIcon"),
     role: document.querySelector("#detailRoleText"),
-    real: document.querySelector("#detailReal"),
-    born: document.querySelector("#detailBorn"),
-    heroes: document.querySelector("#detailHeroes")
+    designation: document.querySelector("#dossierDesignation"),
+    primary: document.querySelector("#dossierPrimary"),
+    secondary: document.querySelector("#dossierSecondary"),
+    mvp: document.querySelector("#dossierMvp"),
+    poolCount: document.querySelector("#dossierPoolCount"),
+    heroesTop: document.querySelector("#dossierHeroesTop"),
+    heroesAll: document.querySelector("#dossierHeroesAll"),
+    more: document.querySelector("#dossierMore"),
+    moreLabel: document.querySelector("#dossierMoreLabel"),
+    source: document.querySelector("#dossierSource"),
+    announce: document.querySelector("#detailAnnounce")
   };
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const background = Array.from(document.body.children).filter(function (el) {
@@ -34,21 +41,109 @@
   let origin = null;
   let busy = false;
 
+  // Alpha-aware pointer hit testing. One mask per source PNG, built lazily and
+  // reused; pointer events only do array lookups, never canvas reads.
+  const masks = new Map();
+  const hitCanvas = document.createElement("canvas");
+  const hitCtx = hitCanvas.getContext("2d", { willReadFrequently: true });
+
+  function maskFor(card) {
+    if (masks.has(card)) return masks.get(card);
+    const img = card.querySelector("img");
+    if (!img || !img.complete || !img.naturalWidth) return null;
+    const w = img.naturalWidth, h = img.naturalHeight;
+    hitCanvas.width = w; hitCanvas.height = h;
+    hitCtx.clearRect(0, 0, w, h);
+    hitCtx.drawImage(img, 0, 0);
+    const rgba = hitCtx.getImageData(0, 0, w, h).data;
+    const mask = new Uint8Array(w * h);
+    for (let i = 0; i < mask.length; i++) mask[i] = rgba[i * 4 + 3] > 64 ? 1 : 0;
+    const result = { w: w, h: h, mask: mask };
+    masks.set(card, result);
+    return result;
+  }
+
+  function opaqueAt(card, x, y) {
+    const b = card.getBoundingClientRect();
+    if (x < b.left || x > b.right || y < b.top || y > b.bottom) return false;
+    const m = maskFor(card);
+    if (!m) return true; // artwork not decoded yet: fall back to the rect
+    let u, v;
+    let quad = null;
+    if (card.getBoxQuads) {
+      try { quad = card.getBoxQuads()[0]; } catch (err) { quad = null; }
+    }
+    if (quad) {
+      const p1 = quad.p1, p2 = quad.p2, p4 = quad.p4;
+      const ax = p2.x - p1.x, ay = p2.y - p1.y;
+      const bx = p4.x - p1.x, by = p4.y - p1.y;
+      const det = ax * by - ay * bx;
+      if (Math.abs(det) < 1e-6) return true;
+      const dx = x - p1.x, dy = y - p1.y;
+      u = (dx * by - dy * bx) / det;
+      v = (ax * dy - ay * dx) / det;
+    } else {
+      u = (x - b.left) / b.width;
+      v = (y - b.top) / b.height;
+    }
+    if (u < 0 || u > 1 || v < 0 || v > 1) return false;
+    const px = Math.min(m.w - 1, Math.max(0, Math.floor(u * m.w)));
+    const py = Math.min(m.h - 1, Math.max(0, Math.floor(v * m.h)));
+    return m.mask[py * m.w + px] === 1;
+  }
+
+  function cardAt(x, y) {
+    for (let i = cards.length - 1; i >= 0; i--) {
+      if (opaqueAt(cards[i], x, y)) return cards[i];
+    }
+    return null;
+  }
+
   function setActive(card) {
     cards.forEach(function (c) { c.classList.toggle("is-active", c === card); });
     fan.classList.toggle("is-inspecting", !!card);
   }
 
+  const dataset = (window.AE_S18 && window.AE_S18.players) || [];
+  const fmt = function (n) { return Number(n).toFixed(2); };
+  const heroEntry = function (h) {
+    const src = "assets/dossier/heroes/" + h.name.toLowerCase() + ".webp";
+    return '<div class="hero-entry"><img src="' + src + '" alt="" width="44" height="44" loading="lazy" decoding="async">'
+      + '<span class="hero-entry__info"><span class="hero-entry__name">' + h.name + '</span>'
+      + '<span class="hero-entry__meta">' + h.picks + ' games · ' + h.winRate + '% wins</span></span></div>';
+  };
+
   function render(card) {
     const d = card.dataset;
-    fields.rank.textContent = d.rank + " card · Alter Ego";
+    const p = dataset.find(function (x) { return x.name === d.name; });
     fields.name.textContent = d.name;
     fields.laneIcon.src = "assets/hero/lane-icons/ai/" + (d.lane || "gold") + ".png";
     fields.role.textContent = d.role;
-    fields.real.textContent = d.real;
-    fields.born.textContent = d.born;
-    fields.heroes.textContent = d.heroes;
-    if (announce) announce.textContent = d.name + ", " + d.role + ". " + d.real + ". Signature heroes: " + d.heroes + ".";
+    fields.designation.textContent = d.name === "Nino" ? "Captain" : "";
+
+    if (p) {
+      fields.primary.innerHTML =
+        '<div class="metric"><span class="metric__value">' + fmt(p.avg.kda) + '</span><span class="metric__label">Avg KDA</span></div>'
+        + '<div class="metric"><span class="metric__value">' + p.avg.kp + '%</span><span class="metric__label">Kill participation</span></div>'
+        + '<div class="metric"><span class="metric__value">' + p.games + '</span><span class="metric__label">Games played</span></div>';
+      fields.secondary.innerHTML =
+        '<div class="dossier__line"><span>Average K / D / A</span><strong>' + fmt(p.avg.kills) + ' / ' + fmt(p.avg.deaths) + ' / ' + fmt(p.avg.assists) + '</strong></div>'
+        + '<div class="dossier__line"><span>Total K / D / A</span><strong>' + p.total.kills + ' / ' + p.total.deaths + ' / ' + p.total.assists + '</strong></div>'
+        + '<div class="dossier__line"><span>Real name</span><strong>' + p.real + '</strong></div>';
+      const mvp = p.mvp && p.mvp.points != null;
+      fields.mvp.innerHTML = '<span>MVP points</span>'
+        + (mvp ? '<strong>' + p.mvp.points + '</strong><span class="rank">#' + p.mvp.rank + ' league standing</span>'
+              : '<span class="unavailable">Not published</span>');
+      fields.poolCount.textContent = p.heroes + ' distinct heroes';
+      fields.heroesTop.innerHTML = p.pool.slice(0, 4).map(heroEntry).join("");
+      fields.heroesAll.innerHTML = p.pool.map(heroEntry).join("");
+      fields.moreLabel.textContent = 'View all ' + p.heroes + ' heroes';
+      fields.more.open = false;
+      fields.source.innerHTML = 'Season 18 data: <a href="https://id-mpl.com/id/statistics" target="_blank" rel="noopener noreferrer">MPL Indonesia statistics</a>, retrieved '
+        + (window.AE_S18.retrieved || '') + '. Individual GPM and MVP award counts are not published and are omitted.';
+      fields.announce.textContent = d.name + ", " + d.role + ". " + fmt(p.avg.kda) + " average KDA, "
+        + p.avg.kp + " percent kill participation across " + p.games + " games. " + p.heroes + " distinct heroes.";
+    }
     cards.forEach(function (c) { c.setAttribute("aria-expanded", String(c === card)); });
     active = card;
   }
@@ -122,7 +217,8 @@
   function focusables() {
     // Only the tab-accessible controls. The name is focused programmatically
     // and has tabindex="-1", so it must not be part of the wrap cycle.
-    return [detailPrev, detailNext, detailClose].filter(Boolean);
+    const summary = fields.more && fields.more.querySelector("summary");
+    return [detailPrev, detailNext, detailClose, summary].filter(Boolean);
   }
 
   function openDetail(card) {
@@ -138,6 +234,7 @@
     detail.setAttribute("aria-hidden", "false");
     if (hint) { hint.classList.add("is-hidden"); hint.setAttribute("inert", ""); }
     fly(card, true, 560).then(function () {
+      detail.classList.add("is-ready");
       fields.name.focus();
       busy = false;
     });
@@ -147,6 +244,7 @@
     if (busy || !active) return;
     busy = true;
     const card = active;
+    detail.classList.remove("is-ready");
     detail.classList.add("is-leaving");
     table.classList.remove("is-detail");
     fly(card, false, 440).then(function () {
@@ -169,6 +267,7 @@
     busy = true;
     const i = cards.indexOf(active);
     const next = cards[(i + dir + cards.length) % cards.length];
+    detail.classList.remove("is-ready");
     detail.classList.add("is-leaving");
     fly(active, false, 300).then(function () {
       render(next);
@@ -176,19 +275,27 @@
       detail.classList.remove("is-leaving");
       return fly(next, true, 460);
     }).then(function () {
+      detail.classList.add("is-ready");
       fields.name.focus();
       busy = false;
     });
   }
 
-  fan.addEventListener("pointerover", function (e) {
-    if (active) return;
-    const c = e.target.closest(".card");
-    if (c) setActive(c);
-  });
-  fan.addEventListener("pointerout", function (e) {
-    if (active) return;
-    if (e.target.closest(".card")) setActive(null);
+  let lastPointer = null;
+  let pointerQueued = false;
+  fan.addEventListener("pointermove", function (e) {
+    if (active || detail.classList.contains("is-open")) return;
+    lastPointer = { x: e.clientX, y: e.clientY };
+    if (pointerQueued) return;
+    pointerQueued = true;
+    requestAnimationFrame(function () {
+      pointerQueued = false;
+      if (!lastPointer || active) return;
+      setActive(cardAt(lastPointer.x, lastPointer.y));
+    });
+  }, { passive: true });
+  fan.addEventListener("pointerleave", function () {
+    if (!active) setActive(null);
   });
   fan.addEventListener("focusin", function (e) {
     // Restoring focus to the returned card must not re-enter the dimmed
@@ -198,7 +305,8 @@
     if (c && !active) setActive(c);
   });
   fan.addEventListener("click", function (e) {
-    const c = e.target.closest(".card");
+    // Keyboard activation reports detail 0 and no useful point; use the target.
+    const c = e.detail === 0 ? e.target.closest(".card") : cardAt(e.clientX, e.clientY);
     if (c) openDetail(c);
   });
 

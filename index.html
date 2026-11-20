@@ -12,7 +12,9 @@
 <title>Alter Ego — The Hand You're Dealt</title>
 <link rel="stylesheet" href="styles.css?v=45">
 <link rel="stylesheet" href="site.css?v=11">
-<link rel="stylesheet" href="cards.css?v=9">
+<link rel="stylesheet" href="cards.css?v=10">
+<link rel="stylesheet" href="dossier.css?v=1">
+<script src="data/s18.js?v=1"></script>
 <script src="site.js?v=1" defer></script>
 <script src="motion.js?v=2" defer></script>
 <script src="card-warp.js?v=1" defer></script>
@@ -132,18 +134,26 @@
       <div class="detail__left">
         <div class="detail__slot" id="detailSlot" aria-hidden="true"></div>
       </div>
-      <div class="detail__info">
-        <p class="detail__eyebrow" id="detailRank"></p>
-        <h2 class="detail__name" id="detailName" tabindex="-1"></h2>
-        <p class="detail__role" id="detailRole">
-          <img class="detail__lane-icon" id="detailLaneIcon" src="assets/hero/lane-icons/ai/gold.png" alt="">
+      <div class="detail__info dossier" id="dossier">
+        <p class="dossier__eyebrow">MPL ID Season 18 · Player dossier</p>
+        <h2 class="dossier__name" id="detailName" tabindex="-1"></h2>
+        <p class="dossier__role" id="detailRole">
+          <img class="dossier__lane-icon" id="detailLaneIcon" src="assets/hero/lane-icons/ai/gold.png" alt="">
           <span id="detailRoleText"></span>
+          <span class="dossier__designation" id="dossierDesignation"></span>
         </p>
-        <dl class="detail__facts">
-          <div class="detail__fact"><dt>Real name</dt><dd id="detailReal"></dd></div>
-          <div class="detail__fact"><dt>Born</dt><dd id="detailBorn"></dd></div>
-          <div class="detail__fact"><dt>Signature heroes</dt><dd id="detailHeroes"></dd></div>
-        </dl>
+        <div class="dossier__primary" id="dossierPrimary"></div>
+        <div class="dossier__secondary" id="dossierSecondary"></div>
+        <div class="dossier__mvp" id="dossierMvp"></div>
+        <section class="dossier__pool">
+          <div class="dossier__pool-head"><h3>Hero pool</h3><span id="dossierPoolCount"></span></div>
+          <div class="dossier__heroes" id="dossierHeroesTop"></div>
+          <details class="dossier__more" id="dossierMore">
+            <summary id="dossierMoreLabel">View full pool</summary>
+            <div class="dossier__heroes dossier__heroes--all" id="dossierHeroesAll"></div>
+          </details>
+        </section>
+        <p class="dossier__source" id="dossierSource"></p>
         <p class="sr-only" id="detailAnnounce" role="status" aria-live="polite"></p>
       </div>
     </div>
@@ -204,6 +214,6 @@
   <div class="site-footer__brand"><img src="assets/hero/logo-ae.png" alt="" width="44" height="44" loading="lazy"><span>Alter Ego · MPL ID</span></div>
   <p class="site-footer__note">Fan-made. Team facts from <a href="https://id-mpl.com/" target="_blank" rel="noopener noreferrer">MPL Indonesia</a> and <a href="https://liquipedia.net/mobilelegends/Alter_Ego" target="_blank" rel="noopener noreferrer">Liquipedia</a> (CC BY-SA 3.0). Not affiliated with Alter Ego or Moonton.</p>
 </div></footer>
-<script src="script.js?v=40"></script>
+<script src="script.js?v=42"></script>
 </body>
 </html>
