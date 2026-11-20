@@ -110,7 +110,7 @@
   const heroEntry = function (h) {
     const src = "assets/dossier/heroes/" + h.slug + ".webp";
     return '<div class="hero-entry"><img src="' + src + '" alt="" width="44" height="44" loading="lazy" decoding="async">'
-      + '<span class="hero-entry__info"><span class="hero-entry__name">' + h.name + '</span>'
+      + '<span class="hero-entry__info"><span class="hero-entry__name">' + h.label + '</span>'
       + '<span class="hero-entry__meta">' + h.picks + ' games · ' + h.winRate + '% wins</span></span></div>';
   };
 
