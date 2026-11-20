@@ -441,7 +441,7 @@ picture.hand, picture.thumb { display:block; }
   .detail { overflow-y: auto; -webkit-overflow-scrolling: touch; }
   .detail__slot { width: min(32vh, 280px); }
   .detail__stage { gap: 1.5rem; width: 100%; }
-  .detail__nav { top: 4.2rem; right: 1rem; bottom: auto; left: auto; transform: none; background: rgba(19,16,23,0.82); padding: 0.2rem 0.6rem; }
+  .detail__nav { position: fixed; top: 4.2rem; right: 1rem; bottom: auto; left: auto; transform: none; background: rgba(19,16,23,0.82); padding: 0.2rem 0.6rem; z-index: 20; }
   
   
 }
