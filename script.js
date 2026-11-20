@@ -227,7 +227,7 @@
   function focusables() {
     // Only the tab-accessible controls. The name is focused programmatically
     // and has tabindex="-1", so it must not be part of the wrap cycle.
-    return Array.from(detail.querySelectorAll('a[href], button, summary'))
+    return Array.from(detail.querySelectorAll('a[href], button, summary, [tabindex]:not([tabindex="-1"])'))
       .filter(function (el) { return el !== fields.name; });
   }
 
