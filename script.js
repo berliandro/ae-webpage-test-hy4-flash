@@ -11,12 +11,13 @@
   const detailClose = document.querySelector("#detailClose");
   const detailPrev = document.querySelector("#detailPrev");
   const detailNext = document.querySelector("#detailNext");
-  const announce = document.querySelector("#detailAnnounce");
   const hint = document.querySelector(".hint");
   if (!fan || !detail || !slot) return;
 
   const cards = Array.from(fan.querySelectorAll(".card"));
   const fields = {
+    eyebrow: document.querySelector("#dossierEyebrow"),
+    counter: document.querySelector("#detailCounter"),
     name: document.querySelector("#detailName"),
     laneIcon: document.querySelector("#detailLaneIcon"),
     role: document.querySelector("#detailRoleText"),
@@ -79,7 +80,7 @@
       const bx = p4.x - p1.x, by = p4.y - p1.y;
       const det = ax * by - ay * bx;
       if (Math.abs(det) < 1e-6) return true;
-      const dx = x - p1.x, dy = y - p1.y;
+      const dx = x + window.scrollX - p1.x, dy = y + window.scrollY - p1.y;
       u = (dx * by - dy * bx) / det;
       v = (ax * dy - ay * dx) / det;
     } else {
@@ -107,11 +108,19 @@
   const dataset = (window.AE_S18 && window.AE_S18.players) || [];
   const fmt = function (n) { return Number(n).toFixed(2); };
   const heroEntry = function (h) {
-    const src = "assets/dossier/heroes/" + h.name.toLowerCase() + ".webp";
+    const src = "assets/dossier/heroes/" + h.slug + ".webp";
     return '<div class="hero-entry"><img src="' + src + '" alt="" width="44" height="44" loading="lazy" decoding="async">'
       + '<span class="hero-entry__info"><span class="hero-entry__name">' + h.name + '</span>'
       + '<span class="hero-entry__meta">' + h.picks + ' games · ' + h.winRate + '% wins</span></span></div>';
   };
+
+  function announcePlayer(card) {
+    const p = dataset.find(function (x) { return x.name === card.dataset.name; });
+    if (!p || !fields.announce) return;
+    fields.announce.textContent = p.name + ", " + p.role + ". " + fmt(p.avg.kda)
+      + " average KDA, " + p.avg.kp + " percent kill participation across "
+      + p.games + " games. " + p.heroes + " distinct heroes.";
+  }
 
   function render(card) {
     const d = card.dataset;
@@ -120,6 +129,9 @@
     fields.laneIcon.src = "assets/hero/lane-icons/ai/" + (d.lane || "gold") + ".png";
     fields.role.textContent = d.role;
     fields.designation.textContent = d.name === "Nino" ? "Captain" : "";
+    if (p) fields.eyebrow.textContent = p.rank + p.suit + " · THE READ · MPL ID S18";
+    fields.counter.textContent = String(cards.indexOf(card) + 1).padStart(2, "0") + " / "
+      + String(cards.length).padStart(2, "0");
 
     if (p) {
       fields.primary.innerHTML =
@@ -131,18 +143,16 @@
         + '<div class="dossier__line"><span>Total K / D / A</span><strong>' + p.total.kills + ' / ' + p.total.deaths + ' / ' + p.total.assists + '</strong></div>'
         + '<div class="dossier__line"><span>Real name</span><strong>' + p.real + '</strong></div>';
       const mvp = p.mvp && p.mvp.points != null;
-      fields.mvp.innerHTML = '<span>MVP points</span>'
-        + (mvp ? '<strong>' + p.mvp.points + '</strong><span class="rank">#' + p.mvp.rank + ' league standing</span>'
-              : '<span class="unavailable">Not published</span>');
+      fields.mvp.innerHTML = mvp
+        ? '<span>MVP points</span><strong>' + p.mvp.points + '</strong><span class="rank">#' + p.mvp.rank + ' league standing</span>'
+        : '';
       fields.poolCount.textContent = p.heroes + ' distinct heroes';
       fields.heroesTop.innerHTML = p.pool.slice(0, 4).map(heroEntry).join("");
       fields.heroesAll.innerHTML = p.pool.map(heroEntry).join("");
       fields.moreLabel.textContent = 'View all ' + p.heroes + ' heroes';
       fields.more.open = false;
       fields.source.innerHTML = 'Season 18 data: <a href="https://id-mpl.com/id/statistics" target="_blank" rel="noopener noreferrer">MPL Indonesia statistics</a>, retrieved '
-        + (window.AE_S18.retrieved || '') + '. Individual GPM and MVP award counts are not published and are omitted.';
-      fields.announce.textContent = d.name + ", " + d.role + ". " + fmt(p.avg.kda) + " average KDA, "
-        + p.avg.kp + " percent kill participation across " + p.games + " games. " + p.heroes + " distinct heroes.";
+        + (window.AE_S18.retrieved || '') + '. Individual GPM and MVP award counts are not published. MVP points appear only when published in the official standings.';
     }
     cards.forEach(function (c) { c.setAttribute("aria-expanded", String(c === card)); });
     active = card;
@@ -217,8 +227,8 @@
   function focusables() {
     // Only the tab-accessible controls. The name is focused programmatically
     // and has tabindex="-1", so it must not be part of the wrap cycle.
-    const summary = fields.more && fields.more.querySelector("summary");
-    return [detailPrev, detailNext, detailClose, summary].filter(Boolean);
+    return Array.from(detail.querySelectorAll('a[href], button, summary'))
+      .filter(function (el) { return el !== fields.name; });
   }
 
   function openDetail(card) {
@@ -235,6 +245,7 @@
     if (hint) { hint.classList.add("is-hidden"); hint.setAttribute("inert", ""); }
     fly(card, true, 560).then(function () {
       detail.classList.add("is-ready");
+      announcePlayer(active);
       fields.name.focus();
       busy = false;
     });
@@ -271,11 +282,13 @@
     detail.classList.add("is-leaving");
     fly(active, false, 300).then(function () {
       render(next);
+      origin = next;
       setActive(next);
       detail.classList.remove("is-leaving");
       return fly(next, true, 460);
     }).then(function () {
       detail.classList.add("is-ready");
+      announcePlayer(active);
       fields.name.focus();
       busy = false;
     });
@@ -290,11 +303,12 @@
     pointerQueued = true;
     requestAnimationFrame(function () {
       pointerQueued = false;
-      if (!lastPointer || active) return;
+      if (!lastPointer || active || !fan.matches(":hover")) return;
       setActive(cardAt(lastPointer.x, lastPointer.y));
     });
   }, { passive: true });
   fan.addEventListener("pointerleave", function () {
+    lastPointer = null;
     if (!active) setActive(null);
   });
   fan.addEventListener("focusin", function (e) {

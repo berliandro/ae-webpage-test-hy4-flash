@@ -14,7 +14,7 @@ window.AE_S18 = {
   "notes": {
     "gpm": "Individual GPM is not published in the official Season 18 player statistics; omitted.",
     "mvpAwards": "Game MVP and Match MVP counts are not published; MVP points and leaderboard rank are.",
-    "unknownMvp": "Null means not published / not in the published top standings, not zero."
+    "unknownMvp": "Absent MVP data means not published in the official standings, not zero. No GPM key is present because individual GPM is not published."
   },
   "players": [
     {
@@ -24,7 +24,7 @@ window.AE_S18 = {
       "lane": "exp",
       "role": "EXP Laner",
       "real": "Syauki Fauzan Sumarno",
-      "born": "30 April 2005",
+      "born": "30 April 2004",
       "games": 49,
       "total": {
         "kills": 81,
@@ -42,86 +42,104 @@ window.AE_S18 = {
       "poolKey": "NINO",
       "pool": [
         {
-          "name": "Barats",
+          "slug": "barats",
+          "label": "Barats",
           "picks": 6,
           "winRate": 83
         },
         {
-          "name": "Uranus",
+          "slug": "uranus",
+          "label": "Uranus",
           "picks": 6,
           "winRate": 83
         },
         {
-          "name": "Atlas",
+          "slug": "atlas",
+          "label": "Atlas",
           "picks": 4,
           "winRate": 75
         },
         {
-          "name": "Aulus",
+          "slug": "aulus",
+          "label": "Aulus",
           "picks": 4,
           "winRate": 75
         },
         {
-          "name": "Carmilla",
+          "slug": "carmilla",
+          "label": "Carmilla",
           "picks": 4,
           "winRate": 75
         },
         {
-          "name": "Esmeralda",
+          "slug": "esmeralda",
+          "label": "Esmeralda",
           "picks": 4,
           "winRate": 50
         },
         {
-          "name": "Freya",
+          "slug": "freya",
+          "label": "Freya",
           "picks": 4,
           "winRate": 50
         },
         {
-          "name": "Sora",
+          "slug": "sora",
+          "label": "Sora",
           "picks": 3,
           "winRate": 67
         },
         {
-          "name": "Cici",
+          "slug": "cici",
+          "label": "Cici",
           "picks": 3,
           "winRate": 33
         },
         {
-          "name": "Alice",
+          "slug": "alice",
+          "label": "Alice",
           "picks": 3,
           "winRate": 0
         },
         {
-          "name": "Hilda",
+          "slug": "hilda",
+          "label": "Hilda",
           "picks": 2,
           "winRate": 100
         },
         {
-          "name": "Phoveus",
+          "slug": "phoveus",
+          "label": "Phoveus",
           "picks": 2,
           "winRate": 50
         },
         {
-          "name": "Arlott",
+          "slug": "arlott",
+          "label": "Arlott",
           "picks": 1,
           "winRate": 0
         },
         {
-          "name": "Badang",
+          "slug": "badang",
+          "label": "Badang",
           "picks": 1,
           "winRate": 0
         },
         {
-          "name": "Dyrroth",
+          "slug": "dyrroth",
+          "label": "Dyrroth",
           "picks": 1,
           "winRate": 0
         },
         {
-          "name": "Yu_Zhong",
+          "slug": "yu-zhong",
+          "label": "Yu Zhong",
           "picks": 1,
           "winRate": 0
         }
-      ]
+      ],
+      "rank": "A",
+      "suit": "♠"
     },
     {
       "id": "affan",
@@ -148,61 +166,74 @@ window.AE_S18 = {
       "poolKey": "AFFAN",
       "pool": [
         {
-          "name": "Hirara",
+          "slug": "hirara",
+          "label": "Hirara",
           "picks": 15,
           "winRate": 73
         },
         {
-          "name": "Nolan",
+          "slug": "nolan",
+          "label": "Nolan",
           "picks": 9,
           "winRate": 89
         },
         {
-          "name": "Suyou",
+          "slug": "suyou",
+          "label": "Suyou",
           "picks": 6,
           "winRate": 33
         },
         {
-          "name": "Aulus",
+          "slug": "aulus",
+          "label": "Aulus",
           "picks": 5,
           "winRate": 40
         },
         {
-          "name": "Fanny",
+          "slug": "fanny",
+          "label": "Fanny",
           "picks": 3,
           "winRate": 33
         },
         {
-          "name": "Harley",
+          "slug": "harley",
+          "label": "Harley",
           "picks": 3,
           "winRate": 0
         },
         {
-          "name": "Paquito",
+          "slug": "paquito",
+          "label": "Paquito",
           "picks": 2,
           "winRate": 100
         },
         {
-          "name": "Leomord",
+          "slug": "leomord",
+          "label": "Leomord",
           "picks": 2,
           "winRate": 50
         },
         {
-          "name": "Yi_Sun-Shin",
+          "slug": "yi-sun-shin",
+          "label": "Yi Sun Shin",
           "picks": 2,
           "winRate": 50
         },
         {
-          "name": "Hayabusa",
+          "slug": "hayabusa",
+          "label": "Hayabusa",
           "picks": 1,
           "winRate": 100
         },
         {
-          "name": "Alpha",
+          "slug": "alpha",
+          "label": "Alpha",
           "picks": 1,
           "winRate": 0
         }
-      ]
+      ],
+      "rank": "J",
+      "suit": "♣"
     },
     {
       "id": "dalvin",
@@ -229,66 +260,80 @@ window.AE_S18 = {
       "poolKey": "DALVIN",
       "pool": [
         {
-          "name": "Zhuxin",
+          "slug": "zhuxin",
+          "label": "Zhuxin",
           "picks": 10,
           "winRate": 40
         },
         {
-          "name": "Eudora",
+          "slug": "eudora",
+          "label": "Eudora",
           "picks": 9,
           "winRate": 89
         },
         {
-          "name": "Kimmy",
+          "slug": "kimmy",
+          "label": "Kimmy",
           "picks": 5,
           "winRate": 60
         },
         {
-          "name": "Rafaela",
+          "slug": "rafaela",
+          "label": "Rafaela",
           "picks": 4,
           "winRate": 75
         },
         {
-          "name": "Selena",
+          "slug": "selena",
+          "label": "Selena",
           "picks": 4,
           "winRate": 50
         },
         {
-          "name": "Valentina",
+          "slug": "valentina",
+          "label": "Valentina",
           "picks": 4,
           "winRate": 50
         },
         {
-          "name": "Valir",
+          "slug": "valir",
+          "label": "Valir",
           "picks": 4,
           "winRate": 25
         },
         {
-          "name": "Cecillion",
+          "slug": "cecillion",
+          "label": "Cecillion",
           "picks": 3,
           "winRate": 100
         },
         {
-          "name": "Yve",
+          "slug": "yve",
+          "label": "Yve",
           "picks": 3,
           "winRate": 67
         },
         {
-          "name": "Mathilda",
+          "slug": "mathilda",
+          "label": "Mathilda",
           "picks": 1,
           "winRate": 100
         },
         {
-          "name": "Luo_Yi",
+          "slug": "luo-yi",
+          "label": "Luo Yi",
           "picks": 1,
           "winRate": 0
         },
         {
-          "name": "Novaria",
+          "slug": "novaria",
+          "label": "Novaria",
           "picks": 1,
           "winRate": 0
         }
-      ]
+      ],
+      "rank": "Q",
+      "suit": "♥"
     },
     {
       "id": "dingarai",
@@ -319,76 +364,92 @@ window.AE_S18 = {
       },
       "pool": [
         {
-          "name": "Paquito",
+          "slug": "paquito",
+          "label": "Paquito",
           "picks": 9,
           "winRate": 78
         },
         {
-          "name": "Obsidia",
+          "slug": "obsidia",
+          "label": "Obsidia",
           "picks": 8,
           "winRate": 75
         },
         {
-          "name": "Claude",
+          "slug": "claude",
+          "label": "Claude",
           "picks": 6,
           "winRate": 50
         },
         {
-          "name": "Miya",
+          "slug": "miya",
+          "label": "Miya",
           "picks": 5,
           "winRate": 60
         },
         {
-          "name": "Moskov",
+          "slug": "moskov",
+          "label": "Moskov",
           "picks": 5,
           "winRate": 60
         },
         {
-          "name": "Melissa",
+          "slug": "melissa",
+          "label": "Melissa",
           "picks": 4,
           "winRate": 50
         },
         {
-          "name": "Brody",
+          "slug": "brody",
+          "label": "Brody",
           "picks": 2,
           "winRate": 50
         },
         {
-          "name": "Clint",
+          "slug": "clint",
+          "label": "Clint",
           "picks": 2,
           "winRate": 50
         },
         {
-          "name": "Freya",
+          "slug": "freya",
+          "label": "Freya",
           "picks": 2,
           "winRate": 50
         },
         {
-          "name": "Harith",
+          "slug": "harith",
+          "label": "Harith",
           "picks": 2,
           "winRate": 0
         },
         {
-          "name": "Cici",
+          "slug": "cici",
+          "label": "Cici",
           "picks": 1,
           "winRate": 100
         },
         {
-          "name": "Hanabi",
+          "slug": "hanabi",
+          "label": "Hanabi",
           "picks": 1,
           "winRate": 100
         },
         {
-          "name": "Esmeralda",
+          "slug": "esmeralda",
+          "label": "Esmeralda",
           "picks": 1,
           "winRate": 0
         },
         {
-          "name": "Karrie",
+          "slug": "karrie",
+          "label": "Karrie",
           "picks": 1,
           "winRate": 0
         }
-      ]
+      ],
+      "rank": "10",
+      "suit": "♣"
     },
     {
       "id": "alexander",
@@ -415,76 +476,92 @@ window.AE_S18 = {
       "poolKey": "ALEXANDER",
       "pool": [
         {
-          "name": "Gloo",
+          "slug": "gloo",
+          "label": "Gloo",
           "picks": 9,
           "winRate": 78
         },
         {
-          "name": "Kalea",
+          "slug": "kalea",
+          "label": "Kalea",
           "picks": 9,
           "winRate": 78
         },
         {
-          "name": "Badang",
+          "slug": "badang",
+          "label": "Badang",
           "picks": 5,
           "winRate": 100
         },
         {
-          "name": "Hylos",
+          "slug": "hylos",
+          "label": "Hylos",
           "picks": 5,
           "winRate": 60
         },
         {
-          "name": "Atlas",
+          "slug": "atlas",
+          "label": "Atlas",
           "picks": 4,
           "winRate": 50
         },
         {
-          "name": "Khaleed",
+          "slug": "khaleed",
+          "label": "Khaleed",
           "picks": 3,
           "winRate": 33
         },
         {
-          "name": "Marcel",
+          "slug": "marcel",
+          "label": "Marcel",
           "picks": 3,
           "winRate": 0
         },
         {
-          "name": "Belerick",
+          "slug": "belerick",
+          "label": "Belerick",
           "picks": 2,
           "winRate": 50
         },
         {
-          "name": "Minotaur",
+          "slug": "minotaur",
+          "label": "Minotaur",
           "picks": 2,
           "winRate": 50
         },
         {
-          "name": "Masha",
+          "slug": "masha",
+          "label": "Masha",
           "picks": 2,
           "winRate": 0
         },
         {
-          "name": "Rafaela",
+          "slug": "rafaela",
+          "label": "Rafaela",
           "picks": 2,
           "winRate": 0
         },
         {
-          "name": "Carmilla",
+          "slug": "carmilla",
+          "label": "Carmilla",
           "picks": 1,
           "winRate": 100
         },
         {
-          "name": "Estes",
+          "slug": "estes",
+          "label": "Estes",
           "picks": 1,
           "winRate": 100
         },
         {
-          "name": "Mathilda",
+          "slug": "mathilda",
+          "label": "Mathilda",
           "picks": 1,
           "winRate": 0
         }
-      ]
+      ],
+      "rank": "K",
+      "suit": "♦"
     }
   ]
 };

@@ -10,11 +10,11 @@
 <link rel="preload" as="image" href="assets/hero/arena-blurred.webp" type="image/webp" fetchpriority="high">
 <link rel="preload" as="font" href="assets/fonts/Silkscreen-Bold.woff2" type="font/woff2" crossorigin>
 <title>Alter Ego — The Hand You're Dealt</title>
-<link rel="stylesheet" href="styles.css?v=45">
-<link rel="stylesheet" href="site.css?v=11">
+<link rel="stylesheet" href="styles.css?v=46">
+<link rel="stylesheet" href="site.css?v=12">
 <link rel="stylesheet" href="cards.css?v=10">
-<link rel="stylesheet" href="dossier.css?v=2">
-<script src="data/s18.js?v=1"></script>
+<link rel="stylesheet" href="dossier.css?v=3">
+<script src="data/s18.js?v=2"></script>
 <script src="site.js?v=1" defer></script>
 <script src="motion.js?v=2" defer></script>
 <script src="card-warp.js?v=1" defer></script>
@@ -127,6 +127,7 @@
   <section class="detail" id="detail" role="dialog" aria-modal="true" aria-labelledby="detailName" aria-describedby="detailRole" aria-hidden="true">
     <nav class="detail__nav" role="group" aria-label="Player navigation">
       <button class="detail__nav-btn" id="detailPrev" type="button" aria-label="Previous player">&#8592;</button>
+      <span class="detail__counter" id="detailCounter" aria-hidden="true">01 / 05</span>
       <button class="detail__nav-btn" id="detailNext" type="button" aria-label="Next player">&#8594;</button>
     </nav>
     <button class="detail__close" id="detailClose" type="button" aria-label="Close card details">Close</button>
@@ -135,7 +136,7 @@
         <div class="detail__slot" id="detailSlot" aria-hidden="true"></div>
       </div>
       <div class="detail__info dossier" id="dossier">
-        <p class="dossier__eyebrow">MPL ID Season 18 · Player dossier</p>
+        <p class="dossier__eyebrow" id="dossierEyebrow">THE READ · MPL ID S18</p>
         <h2 class="dossier__name" id="detailName" tabindex="-1"></h2>
         <p class="dossier__role" id="detailRole">
           <img class="dossier__lane-icon" id="detailLaneIcon" src="assets/hero/lane-icons/ai/gold.png" alt="">
@@ -214,6 +215,6 @@
   <div class="site-footer__brand"><img src="assets/hero/logo-ae.png" alt="" width="44" height="44" loading="lazy"><span>Alter Ego · MPL ID</span></div>
   <p class="site-footer__note">Fan-made. Team facts from <a href="https://id-mpl.com/" target="_blank" rel="noopener noreferrer">MPL Indonesia</a> and <a href="https://liquipedia.net/mobilelegends/Alter_Ego" target="_blank" rel="noopener noreferrer">Liquipedia</a> (CC BY-SA 3.0). Not affiliated with Alter Ego or Moonton.</p>
 </div></footer>
-<script src="script.js?v=42"></script>
+<script src="script.js?v=43"></script>
 </body>
 </html>

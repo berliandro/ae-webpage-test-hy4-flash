@@ -1,5 +1,9 @@
 /* MPL ID Season 18 player dossier — printed-card information, not a dashboard. */
-.dossier { color: #f1e4cd; text-wrap: pretty; min-width: 0; }
+.dossier {
+  color: #f1e4cd; text-wrap: pretty; min-width: 0;
+  padding: 1rem; margin: -1rem;
+  background: radial-gradient(ellipse at 50% 45%, rgba(10,8,12,0.55), transparent 75%);
+}
 
 .dossier__eyebrow {
   margin: 0 0 0.5rem;
@@ -9,10 +13,9 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-/* The name is focused programmatically, not a keyboard stop; its browser
-   focus ring is the unwanted white rectangle around the heading. */
-.dossier__name:focus,
-.dossier__name:focus-visible { outline: none; }
+/* A designed cue replaces the browser's white focus rectangle. The heading
+   is focused programmatically, so :focus (not :focus-visible) is required. */
+.dossier__name:focus { outline: none; text-decoration: underline solid var(--amber) 2px; text-underline-offset: 6px; }
 .dossier__name {
   margin: 0;
   font-family: var(--font-display);
@@ -41,7 +44,7 @@
 .dossier__designation {
   color: var(--ae-red-text, #ff7b7b);
   font-size: 0.66em;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 .dossier__designation:empty { display: none; }
@@ -70,8 +73,8 @@
   display: block;
   margin-top: 0.3rem;
   color: rgba(231,214,180,0.68);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
@@ -90,7 +93,7 @@
   font-size: 0.92rem;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }
 
 .dossier__mvp {
@@ -154,12 +157,12 @@
 .hero-entry__info { min-width: 0; }
 .hero-entry__name {
   display: block; color: #f1e4cd;
-  font-family: var(--font-display); font-size: 0.78rem; line-height: 1.1;
+  font-family: var(--font-display); font-size: 0.82rem; line-height: 1.1;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .hero-entry__meta {
   display: block; margin-top: 0.25rem;
-  color: rgba(231,214,180,0.74); font-size: 0.7rem;
+  color: rgba(231,214,180,0.88); font-size: 0.76rem;
   font-variant-numeric: tabular-nums; white-space: nowrap;
 }
 .dossier__more { margin-top: 0.8rem; }
@@ -172,13 +175,14 @@
   letter-spacing: 0.04em;
 }
 .dossier__more summary:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+.dossier__mvp:empty { display: none; }
 .dossier__heroes--all { max-height: 260px; overflow-y: auto; padding-right: 0.3rem; }
 
 .dossier__source {
   margin: 1.2rem 0 0;
-  color: rgba(231,214,180,0.58);
-  font-size: 0.7rem;
-  line-height: 1.5;
+  color: rgba(231,214,180,0.82);
+  font-size: 0.72rem;
+  line-height: 1.6;
   max-width: 60ch;
 }
 .dossier__source a { color: rgba(226,190,128,0.9); text-underline-offset: 0.2em; }
@@ -190,6 +194,8 @@
 .detail.is-ready .dossier > *:nth-child(4) { transition-delay: 120ms; }
 .detail.is-ready .dossier > *:nth-child(5) { transition-delay: 160ms; }
 .detail.is-ready .dossier > *:nth-child(6) { transition-delay: 200ms; }
+.detail.is-ready .dossier > *:nth-child(7) { transition-delay: 240ms; }
+.detail.is-ready .dossier > *:nth-child(8) { transition-delay: 280ms; }
 .detail.is-leaving .dossier > * { opacity: 0; transition-duration: 160ms; transition-delay: 0ms; }
 
 @media (max-width: 560px) {
@@ -198,7 +204,22 @@
   .dossier__heroes { gap: 0.45rem; }
   .hero-entry img { width: 36px; height: 36px; }
   .dossier__heroes--all { max-height: 210px; }
+  .dossier__line { align-items: flex-start; }
+  .dossier__line strong { font-size: 0.85rem; text-align: right; }
 }
 @media (prefers-reduced-motion: reduce) {
   .dossier > * { opacity: 1; transform: none; transition: none; }
+}
+
+@media (max-width: 400px) {
+  .dossier__heroes { grid-template-columns: 1fr; }
+  .metric__label { min-height: 2.4em; }
+  .hero-entry__meta { overflow: hidden; text-overflow: ellipsis; }
+}
+.detail__counter {
+  align-self: center;
+  color: rgba(231,214,180,0.72);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
 }

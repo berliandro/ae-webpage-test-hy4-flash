@@ -549,6 +549,8 @@ body { min-height: 100vh; overflow-x: hidden; }
   font-weight: 700;
   text-decoration: none;
 }
+body.is-card-detail { overflow: hidden; }
+
 .skip-link:focus { left: 1rem; top: 1rem; }
 
 /* Pixel display face — self-hosted, SIL Open Font License 1.1 (see assets/fonts/OFL.txt) */
