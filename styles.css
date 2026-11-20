@@ -318,9 +318,7 @@ picture.hand, picture.thumb { display:block; }
   position: relative;
   width: min(38vh, 360px);
   aspect-ratio: 0.66;
-  border: 1px solid rgba(200,168,129,0.28);
-  background: radial-gradient(ellipse at 50% 30%, rgba(226,190,128,0.08), transparent 70%);
-  /* No wrapper shadow — the picked-up card owns the only physical shadow. */
+  /* No wrapper border, fill or shadow — the picked-up card owns all depth. */
 }
 
 /* Same card element, now travelling. Overrides the fan's absolute coordinates. */
