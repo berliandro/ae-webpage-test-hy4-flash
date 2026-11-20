@@ -9,6 +9,10 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
+/* The name is focused programmatically, not a keyboard stop; its browser
+   focus ring is the unwanted white rectangle around the heading. */
+.dossier__name:focus,
+.dossier__name:focus-visible { outline: none; }
 .dossier__name {
   margin: 0;
   font-family: var(--font-display);
